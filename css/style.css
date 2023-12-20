@@ -614,12 +614,12 @@ h1.arrow span {
 .color-bg h1.arrow {
     color: #FFF;
 }
-/* ==========================================================================Services========================================================================== */
-.services {
+/* ==========================================================================Skills========================================================================== */
+.skills {
 	margin-top:80px;
 	margin-bottom:40px;
 }
-.services .icon {
+.skills .icon {
 	position:relative;
 	width:175px;
 	height:175px;
@@ -636,15 +636,15 @@ h1.arrow span {
 	border: 1px solid #E04343;
 	color: #E04343;
 }
-.services .item:hover .icon {
+.skills .item:hover .icon {
 	background: #E04343;
 	border: 1px solid #E04343;
 }
-.services .item [class*=fa] {
+.skills .item [class*=fa] {
 	-webkit-transition:all .3s ease-out;
 	transition:all .3s ease-out;
 }
-.services .item:hover [class*=fa] {
+.skills .item:hover [class*=fa] {
 	-webkit-transform:scale(1.2);
 	transform:scale(1.2);
 	-webkit-transition:all .3s ease-out;
@@ -687,7 +687,7 @@ i.respons {
 	height:100%;
 	z-index:2;
 }
-.responsive-services {
+.responsive-skills {
 	position: relative;
 }
 /* ==========================================================================Portfolio========================================================================== */
@@ -1034,7 +1034,7 @@ footer p {
 	color: #808080;
 }
 /* ==========================================================================FlexSlider Custom CSS========================================================================== */
-#servicesSlider {
+#skillssSlider {
 	margin-top:70px;
 }
 ul.slides li {
