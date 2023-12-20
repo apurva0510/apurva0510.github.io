@@ -76,8 +76,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 }
 audio,canvas,video {
 	display:inline-block;
-	*display:inline;
-	*zoom: 1;
+	* {
+		display:inline;
+		zoom: 1;
+	}
 }
 /* Remove excess height in iOS 5 devices. */
 audio:not([controls]) {
