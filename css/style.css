@@ -1092,13 +1092,13 @@ ul.slides li {
 }
 /* ==========================================================================Responsive========================================================================== */
 /* 320px (iPhone) */
-@media screen and (max-width:100%) {
+@media screen and (max-width:414px) {
 	.scrollto {
 		padding: 95px 0px 0px 0px;
 	}
 
 	.hero h1 {
-		font-size: 100px;
+		font-size: 75px;
 		line-height: 80px;
 		margin-top: 65px;
 }
