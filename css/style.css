@@ -2,7 +2,7 @@
 	Global Styles
 ========================================================================== */
 a {
-	color: #E04343;
+	color: #282CAD;
 	-webkit-transition:all 0.5s;
 	-moz-transition:all 0.5s;
 	-o-transition:all 0.5s;
@@ -274,9 +274,9 @@ table {
 }
 .dark-box {
 	background: #F3F5F8;
-	-webkit-box-shadow: 0px 3px 0px 0px #E04343;
-	-moz-box-shadow: 0px 3px 0px 0px #E04343;
-	box-shadow: 0px 3px 0px 0px #E04343;
+	-webkit-box-shadow: 0px 3px 0px 0px #282CAD;
+	-moz-box-shadow: 0px 3px 0px 0px #282CAD;
+	box-shadow: 0px 3px 0px 0px #282CAD;
 	padding:20px 0;
 }
 .dark-box:hover,.dark-box:focus {
@@ -310,7 +310,7 @@ table {
 	outline:none!important;
 }
 .menu-wrap a:hover,.menu-wrap a:focus {
-	color: #E04343;
+	color: #282CAD;
 }
 .content-wrap {
 	overflow-y:scroll;
@@ -406,7 +406,7 @@ table {
 	-webkit-transition-delay:0s;
 	transition-delay:0s;
 	background: rgba(251, 251, 251, 1);
-	border-bottom: 1px solid #E04343;
+	border-bottom: 1px solid #282CAD;
 }
 .show-menu .icon-list a {
 	opacity:1;
@@ -458,7 +458,7 @@ table {
 	margin:0;
 	padding:0;
 	opacity:0.5;
-	color: #E04343;
+	color: #282CAD;
 	letter-spacing: 18px;
 	line-height: 50px;
 	text-transform: uppercase;
@@ -550,7 +550,7 @@ h1.arrow {
 	font-weight: bold;
 }
 h1.arrow span {
-    color: #E04343;
+    color: #282CAD;
 }
 /* ==========================================================================About========================================================================== */
 .about-image {
@@ -561,7 +561,7 @@ h1.arrow span {
 	background-size:cover;
 }
 .color-bg {
-	background: #E04343;
+	background: #282CAD;
 }
 .color-bg a {
     color: #FFE800;
@@ -578,7 +578,7 @@ h1.arrow span {
 }
 .color-bg .weight-outline-btn:hover {
   background: #FFF;
-  color: #E04343;
+  color: #282CAD;
   border-color: rgba(0, 0, 0, 0);
 }
 .about-text {
@@ -614,12 +614,12 @@ h1.arrow span {
 	margin-bottom:40px;
 	-webkit-transition:all .3s ease-out;
 	transition:all .3s ease-out;
-	border: 1px solid #E04343;
-	color: #E04343;
+	border: 1px solid #282CAD;
+	color: #282CAD;
 }
 .skills .item:hover .icon {
-	background: #E04343;
-	border: 1px solid #E04343;
+	background: #282CAD;
+	border: 1px solid #282CAD;
 }
 .skills .item [class*=fa] {
 	-webkit-transition:all .3s ease-out;
@@ -825,7 +825,7 @@ ul.social-buttons li:last-child {
 .social-btn {
 	width:40px;
 	height:40px;
-	background: #E04343;
+	background: #282CAD;
 	display:inline-block;
 	color:#fff;
 	font-size:17px;
@@ -835,7 +835,7 @@ ul.social-buttons li:last-child {
 }
 .social-btn:hover,.social-btn:focus {
 	background: rgba(255, 232, 0, 1);
-	color: #E04343;
+	color: #282CAD;
 }
 .social {
 	margin-top: 25px
@@ -847,7 +847,7 @@ ul.social-buttons li:last-child {
 	background: rgba(255, 232, 1, 0.9);
 	display:block;
 	margin:0 auto;
-	color: #E04343;
+	color: #282CAD;
 	font-size:18px;
 	line-height:52px;
 	text-align:center;
@@ -952,8 +952,8 @@ ul.slides li {
 	font-weight: bold;
 }
 .flex-control-paging li a.flex-active {
-    background: #E04343;
-    border-color: #E04343;
+    background: #282CAD;
+    border-color: #282CAD;
 }
 
 .color-bg .flex-control-paging li a{
