@@ -93,8 +93,8 @@ a:active,a:hover {
 /* ==========================================================================Typography========================================================================== */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
 h1 {
-	font-size:2em;
-	margin:0.67em 0;
+	font-size:1.17em;
+	margin:1em 0;
 	color:#353535;
 }
 h2 {
@@ -213,21 +213,22 @@ legend {
 	border:0;
 	padding:0;
 	white-space:normal;
-	*margin-left:-7px;
+	margin-left:-7px;
 }
 button,input,select,textarea {
 	font-size:100%;
-	/margin:0;
+	margin:0;
 	vertical-align:baseline;
-	*vertical-align:middle;
+	vertical-align:middle;
 }
 button,input {
 	line-height:normal;
 }
 button,html input[type="button"],input[type="reset"],input[type="submit"] {
 	-webkit-appearance:button;
+	appearance: button;
 	cursor:pointer;
-	*overflow:visible;
+	overflow:visible;
 }
 button[disabled],input[disabled] {
 	cursor:default;
@@ -235,11 +236,12 @@ button[disabled],input[disabled] {
 input[type="checkbox"],input[type="radio"] {
 	box-sizing:border-box;
 	padding:0;
-	*height:13px;
-	*width:13px;
+	height:13px;
+	width:13px;
 }
 input[type="search"] {
 	-webkit-appearance:textfield;
+	appearance: textfield;
 	-moz-box-sizing:content-box;
 	-webkit-box-sizing:content-box;
 	box-sizing:content-box;
@@ -348,7 +350,7 @@ table {
 	right:0.5em;
 	bottom:0.5em;
 	left:0.5em;
-	background: linear-gradient(#E04343 20%,rgba(0, 0, 0, 0) 20%,rgba(0, 0, 0, 0) 40%,#E04343 40%,#E04343 60%,rgba(0, 0, 0, 0) 60%,rgba(0, 0, 0, 0) 80%,#E04343 80%);
+	background: linear-gradient(#FFE801 20%,rgba(0, 0, 0, 0) 20%,rgba(0, 0, 0, 0) 40%,#FFE801 40%,#FFE801 60%,rgba(0, 0, 0, 0) 60%,rgba(0, 0, 0, 0) 80%,#FFE801 80%);
 	content:'';
 }
 .menu-button:hover {
@@ -357,7 +359,7 @@ table {
 /* Menu */
 .menu-wrap {
 	z-index:999;
-	background: rgba(255, 255, 255, 1);
+	background: rgba(251, 251, 251, 0);
 	-webkit-transition:width 0.4s,height 0.4s,-webkit-transform 0.4s;
 	transition:width 0.4s,height 0.4s,transform 0.4s;
 	-webkit-transition-timing-function:cubic-bezier(0.7,0,0.3,1);
@@ -397,12 +399,13 @@ table {
 	transform:translate3d(0,125px,0);
 }
 .show-menu .menu-wrap {
-	width:100%;
+	width:auto;
 	height:125px;
 	-webkit-transform:translate3d(0,0,0);
 	transform:translate3d(0,0,0);
 	-webkit-transition-delay:0s;
 	transition-delay:0s;
+	background: rgba(251, 251, 251, 1);
 	border-bottom: 1px solid #E04343;
 }
 .show-menu .icon-list a {
@@ -434,16 +437,16 @@ table {
 .hero {
 	background: url('../img/header-bg.jpg') right bottom no-repeat;
 	background-size: contain;
-	padding:110px 0 100px 0;
+	padding:200px 0 0px 0;
 	height:auto;
 	background-color: #FBFBFB;
 }
 .hero h1 {
-	font-size: 120px;
-	letter-spacing: -8px;
+	font-size: 450%;
+	letter-spacing: 5px;
 	margin: 0;
 	font-weight: 600;
-	line-height: 95px;
+	line-height: 60px;
 	text-transform: uppercase;
 }
 .hero h1 span {
@@ -806,86 +809,7 @@ img.grayscale:hover {
 	margin-right:auto;
 	top: 50px;
 }
-/* ==========================================================================Subscribe========================================================================== */
-.subscribe {
-	padding-top:75px;
-}
-.subscribe h1 {
-	color: #FFFFFF;
-	margin-bottom:40px;
-}
-.subscribe h1 span {
-	display:block;
-	font-size:15px;
-	text-transform:uppercase;
-	font-weight:bold;
-	margin-top:20px;
-	letter-spacing:1px;
-}
-.subscribe input[type=text] {
-	background-color:rgba(255,255,255,0.1);
-	border: solid 1px #FFE800;
-	padding:20px;
-	width:30%;
-	color:#808080;
-}
-
-.subscribe input[type=text]:focus {
-    outline: none;
-}
-.subscribe input[type=submit] {
-	background: #FFE800;
-	border: solid 1px #FFE800;
-	padding:20px;
-	color: #E04343;
-	text-transform:uppercase;
-	letter-spacing:1px;
-	transition:all 0.5s ease;
-	-moz-transition:all 0.5s ease;
-	-webkit-transition:all 0.5s ease;
-	-o-transition:all 0.5s ease;
-}
-.subscribe input[type=submit]:hover {
-	background: rgba(255, 232, 0, 0.9);
-	border: solid 1px #FFE800;
-	color: #E04343;
-}
-/* ==========================================================================CTA========================================================================== */
-.spacer-cta {
-	background-color: #E04343;
-	padding:70px 0;
-}
-.outline-btn {
-	display:inline-block;
-	padding:25px 40px;
-	color: #FFE801;
-	border: solid 1px #FFE801;
-	text-transform:uppercase;
-	font-weight:bold;
-	letter-spacing:1px;
-}
-.outline-btn:hover,.outline-btn:focus {
-	color: #E04343;
-	border: solid 1px #E04343;
-	background: #FFE801;
-}
-.weight-outline-btn {
-	display:inline-block;
-	padding:20px 30px;
-	color:#8C8C8C;
-	border:solid 1px #8C8C8C;
-	text-transform:uppercase;
-	font-weight:bold;
-	letter-spacing:1px;
-}
-.weight-outline-btn:hover,.outline-btn:focus {
-	color:#424242;
-	border: solid 1px #424242;
-}
 /* ==========================================================================Team========================================================================== */
-.team img {
-	margin-bottom:20px;
-}
 ul.social-buttons {
 	list-style:none;
 	margin:0;
@@ -907,6 +831,7 @@ ul.social-buttons li:last-child {
 	font-size:17px;
 	line-height:40px;
 	text-align:center;
+	border-radius: 25%;
 }
 .social-btn:hover,.social-btn:focus {
 	background: rgba(255, 232, 0, 1);
@@ -974,36 +899,6 @@ ul.social-buttons li:last-child {
 .contact textarea.form-control {
 	height: 310px;
 }
-
-/* Inputs styles */
-.contact .form-control {
-	border-radius:0!important;
-	;
-	-webkit-box-shadow:none;
-	box-shadow:none;
-}
-.contact .form-control:focus {
-	-webkit-box-shadow:none;
-	box-shadow:none;
-	border:1px solid #B0B0B0;
-}
-
-.btn-send{
-	background:#E04343;
-	color: white;
-	transition: all 0.4s;
-	border-radius: 0;
-	float: right;
-}
-
-.btn-send:hover{
-	background: #FFE800;
-	color: #E04343
-}
-
-button,button:focus,button:hover,button:active {
-	outline: none!important;
-}
 /* ==========================================================================Footer========================================================================== */
 footer a {
 	color:#a1a9b0;
@@ -1070,26 +965,6 @@ ul.slides li {
     background: #FFE800;
     border-color: #FFE800;
 }
-/* ==========================================================================Waypoints========================================================================== */
-.wp1,.wp2,.wp3,.wp4,.wp5,.wp6 {
-	visibility:hidden;
-}
-.bounceInLeft,.bounceInRight,.fadeInUp,.fadeInUpDelay,.fadeInDown,.fadeInUpD,.fadeInLeft,.fadeInRight {
-	visibility:visible;
-}
-.delay-05s {
-	animation-delay:0.5s;
-	-webkit-animation-delay:0.5s;
-}
-.delay-1s {
-	animation-delay:1s;
-	-webkit-animation-delay:1s;
-}
-.wp3 {
-	background:url('../img/iphone-bg.png') no-repeat center center;
-	background-position:200px 10px;
-	height: 100%;
-}
 /* ==========================================================================Responsive========================================================================== */
 /* 320px (iPhone) */
 @media screen and (max-width:414px) {
@@ -1098,10 +973,14 @@ ul.slides li {
 	}
 
 	.hero h1 {
-		font-size: 100vw;
+		font-size: 100px;
 		line-height: 80px;
 		margin-top: 65px;
-}
+	}
+
+	.row {
+		flex-direction: column-reverse;
+	}
 }
 /* 480px (WVGA - Low End Windows Phone) */
 @media screen and (max-width:480px) {
@@ -1118,6 +997,9 @@ ul.slides li {
 	.wp2,.wp4,.wp5,.light-box {
 		margin-bottom: 30px;
 	}
+	.row {
+		flex-direction: column-reverse;
+	}
 }
 /* xGA iPad */
 @media screen and (max-width:1024px) {
@@ -1130,11 +1012,17 @@ ul.slides li {
 	.subscribe {
 		background-attachment: scroll;
 	}
+	.row {
+		flex-direction: column-reverse;
+	}
 }
 /* 1200px (Small Desktop,Netbook) */
 @media screen and (max-width:1280px) {
 	.wp3 {
 		background-position: 50px 0;
+	}
+	.row {
+		flex-direction: column-reverse;
 	}
 }
 /* Bootstrap 990px Breakpoint to 480px */
@@ -1151,6 +1039,9 @@ ul.slides li {
 	}
 	.wp2,.wp4,.wp5,.light-box {
 		margin-bottom:30px;
+	}
+	.row {
+		flex-direction: column-reverse;
 	}
 }
 @media screen and (max-width:50em) {
