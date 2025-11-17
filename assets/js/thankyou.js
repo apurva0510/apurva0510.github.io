@@ -4,31 +4,33 @@
 
     function showMessage(message, isError = false) {
       status.textContent = message;
-      status.style.color = isError ? "#ff6b6b" : "#4CAF50";
+      status.style.color = isError ? "#ff6b6b" : "#4CAF50"; // red for error, green for success
     }
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", async function(event) {
       event.preventDefault();
 
       const data = new FormData(form);
 
-      // Immediately show "success" to feel snappy
-      showMessage("Thank you, your message has been sent!");
+      showMessage("Sending message...");
 
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          "Accept": "application/json"
-        }
-      }).then(response => {
-        if (!response.ok) {
-          showMessage("Oops, something went wrong. Please email me at aggarw86@msu.edu.", true);
-        } else {
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          showMessage("Thank you, your message has been sent!");
           form.reset();
+        } else {
+          showMessage("Oops, something went wrong. Please try again later.", true);
         }
-      }).catch(() => {
-        showMessage("Network error. Please email me at aggarw86@msu.edu.", true);
-      });
+      } catch (error) {
+        showMessage("Network error. Please check your connection and try again.", true);
+      }
     });
   })();
