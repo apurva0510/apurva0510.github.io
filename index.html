@@ -116,14 +116,12 @@
 									<h3>Contact Me</h3>
 									<p>I am always open to chatting about software development, data and AI projects, sustainability, RA life, or potential collaborations and internships. Reach out if you would like to work together, ask a question, or just connect.</p>
 
-									<form method="POST" action="https://formspree.io/f/xovygnbr">
+									<!-- Added id="contact-form" -->
+									<form id="contact-form" method="POST" action="https://formspree.io/f/xovygnbr">
 									<div class="row gtr-uniform">
 
 										<!-- Subject line of the email you receive -->
 										<input type="hidden" name="_subject" value="New message from apurva0510.github.io">
-
-										<!-- Redirect back to your site after successful submit -->
-										<input type="hidden" name="_redirect" value="https://apurva0510.github.io/#four">
 
 										<div class="col-6 col-12-xsmall">
 										<input type="text" name="name" id="name" placeholder="Name" required />
@@ -149,6 +147,9 @@
 										</div>
 									</div>
 									</form>
+
+									<!-- Status message area -->
+									<p id="form-status" style="margin-top: 1rem;"></p>
 								</div>
 								</section>
 
@@ -183,6 +184,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/thankyou.js"></script>
 
 	</body>
 </html>
