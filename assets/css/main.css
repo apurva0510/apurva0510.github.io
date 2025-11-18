@@ -3734,7 +3734,7 @@ body {
 			flex-direction: column;
 			align-items: stretch;
 			padding: 3rem 3rem 3rem;
-			row-gap: 2rem;
+			row-gap: 3rem;
 			justify-content: center;
 		}
 
@@ -3747,7 +3747,7 @@ body {
 			width: 100%;
 			background: transparent;
 			border-radius: 0;
-			padding: 2.25rem 0 0 0;
+			padding: 3rem 0 0 0;
 			gap: 1.75rem;
 			align-items: left;
 			justify-content: center;
