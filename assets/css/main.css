@@ -3687,6 +3687,26 @@ body {
 				flex: 0 0 auto;
 			}
 
+		ul.feature-icons {
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		}
+
+			ul.feature-icons li {
+				justify-content: flex-start;
+			}
+
+	@media screen and (max-width: 640px) {
+
+		ul.feature-icons {
+			grid-template-columns: 1fr;
+		}
+
+			ul.feature-icons li {
+				gap: 1.25rem;
+			}
+
+	}
+
 		#apple-nav-toggle:checked ~ .apple-nav-menu {
 			display: -moz-flex;
 			display: -webkit-flex;
