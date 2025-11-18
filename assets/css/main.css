@@ -2374,18 +2374,18 @@ body {
 	ul.feature-icons {
 		list-style: none;
 		padding-left: 0;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 1.75em 2.25em;
 	}
 
 		ul.feature-icons li {
 			text-decoration: none;
-			display: flex;
+			display: inline-flex;
 			align-items: center;
 			gap: 1rem;
-			padding: 0;
-			margin: 0;
+			padding: 0.35em 0 0 3.5em;
+			margin: 0 0 1.6875em 0;
+			position: relative;
+			vertical-align: top;
+			width: 48%;
 		}
 
 			ul.feature-icons li:before {
@@ -2405,21 +2405,14 @@ body {
 				background: #625851;
 				border-radius: 100%;
 				color: #ffffff;
-				display: inline-flex;
-				height: 2.6em;
-				width: 2.6em;
-				min-width: 2.6em;
-				line-height: 2.6em;
+				display: block;
+				height: 2.5em;
+				width: 2.5em;
+				line-height: 2.5em;
 				text-align: center;
-				-moz-align-items: center;
-				-webkit-align-items: center;
-				-ms-align-items: center;
-				align-items: center;
-				-moz-justify-content: center;
-				-webkit-justify-content: center;
-				-ms-justify-content: center;
-				justify-content: center;
-				transform: translateY(-0.15em);
+				position: absolute;
+				left: 0;
+				top: 0;
 			}
 
 /* Icons */
@@ -3687,23 +3680,11 @@ body {
 				flex: 0 0 auto;
 			}
 
-		ul.feature-icons {
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		}
-
-			ul.feature-icons li {
-				justify-content: flex-start;
-			}
-
 	@media screen and (max-width: 640px) {
 
-		ul.feature-icons {
-			grid-template-columns: 1fr;
+		ul.feature-icons li {
+			width: 100%;
 		}
-
-			ul.feature-icons li {
-				gap: 1.25rem;
-			}
 
 	}
 
