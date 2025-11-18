@@ -2668,11 +2668,16 @@ body {
 			padding-right: 2.5em;
 			vertical-align: middle;
 			width: 48%;
+			border-radius: 0rem;
+			overflow: hidden;
+			position: relative;
 		}
 
 			.features article .image img {
 				display: block;
 				width: 100%;
+				transition: transform 0.25s ease, box-shadow 0.25s ease;
+				will-change: transform;
 			}
 
 		.features article .inner {
@@ -2683,6 +2688,11 @@ body {
 
 .features article .inner > :last-child {
 	margin-bottom: 0;
+}
+
+.features article:hover .image img {
+	transform: scale(1.02);
+	box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.18);
 }
 
 .about-content {
@@ -3474,8 +3484,8 @@ body {
 
 		#header .apple-nav-toggle + .apple-nav-toggle-button {
 			display: none;
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 999px;
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			border-radius: 50%;
 			width: 2.75rem;
 			height: 2.75rem;
 			padding: 0;
@@ -3488,10 +3498,13 @@ body {
 			-webkit-justify-content: center;
 			-ms-justify-content: center;
 			justify-content: center;
-			background: rgba(255, 255, 255, 0.05);
+			background: rgba(255, 255, 255, 0.06);
 			cursor: pointer;
-			position: relative;
+			position: absolute;
+			top: calc((var(--nav-height) - 2.75rem) / 2);
+			right: 2rem;
 			overflow: hidden;
+			z-index: 5;
 		}
 
 			#header .apple-nav-toggle + .apple-nav-toggle-button:before {
@@ -3614,9 +3627,6 @@ body {
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: flex;
-			margin-left: auto;
-			order: 2;
-			align-self: center;
 		}
 
 		.apple-name {
@@ -3717,16 +3727,15 @@ body {
 		body.nav-open #header {
 			min-height: 100vh;
 			background: rgba(8, 8, 12, 0.97);
-			animation: drawerFade 0.35s ease;
 		}
 
 		body.nav-open #header .apple-nav-inner {
 			min-height: 100vh;
 			flex-direction: column;
 			align-items: stretch;
-			padding: 2.5rem 3rem 3rem;
+			padding: 3rem 3rem 3rem;
 			row-gap: 2rem;
-			animation: drawerFade 0.4s ease;
+			justify-content: center;
 		}
 
 		body.nav-open #header .apple-nav-menu {
@@ -3740,6 +3749,9 @@ body {
 			border-radius: 0;
 			padding: 2.25rem 0 0 0;
 			gap: 1.75rem;
+			align-items: left;
+			justify-content: center;
+			text-align: left;
 		}
 
 			body.nav-open #header .apple-nav-menu a {
