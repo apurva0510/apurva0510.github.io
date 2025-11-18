@@ -9,8 +9,8 @@
 	var $window = $(window),
 		$body = $('body'),
 		$header = $('#header'),
-		$titleBar = null,
 		$nav = $('#nav'),
+		$navToggle = $('#apple-nav-toggle'),
 		$wrapper = $('#wrapper');
 
 	// Breakpoints.
@@ -54,104 +54,93 @@
 
 			}
 
-	// Header Panel.
+	// Navigation enhancements.
+			var $nav_a = $nav.find('a'),
+				closeToggle = function() {
+					if ($navToggle.length && $navToggle.is(':checked')) {
+						$navToggle.prop('checked', false);
+						$body.removeClass('nav-open');
+					}
+				};
 
-		// Nav.
-			var $nav_a = $nav.find('a');
-
-			$nav_a
-				.addClass('scrolly')
-				.on('click', function() {
-
-					var $this = $(this);
-
-					// External link? Bail.
-						if ($this.attr('href').charAt(0) != '#')
-							return;
-
-					// Deactivate all links.
-						$nav_a.removeClass('active');
-
-					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-						$this
-							.addClass('active')
-							.addClass('active-locked');
-
-				})
-				.each(function() {
-
-					var	$this = $(this),
-						id = $this.attr('href'),
-						$section = $(id);
-
-					// No section for this link? Bail.
-						if ($section.length < 1)
-							return;
-
-					// Scrollex.
-						$section.scrollex({
-							mode: 'middle',
-							top: '5vh',
-							bottom: '5vh',
-							initialize: function() {
-
-								// Deactivate section.
-									$section.addClass('inactive');
-
-							},
-							enter: function() {
-
-								// Activate section.
-									$section.removeClass('inactive');
-
-								// No locked links? Deactivate all links and activate this section's one.
-									if ($nav_a.filter('.active-locked').length == 0) {
-
-										$nav_a.removeClass('active');
-										$this.addClass('active');
-
-									}
-
-								// Otherwise, if this section's link is the one that's locked, unlock it.
-									else if ($this.hasClass('active-locked'))
-										$this.removeClass('active-locked');
-
-							}
-						});
-
+			if ($navToggle.length)
+				$navToggle.on('change', function() {
+					$body.toggleClass('nav-open', $(this).is(':checked'));
 				});
 
-		// Title Bar.
-			$titleBar = $(
-				'<div id="titleBar">' +
-					'<a href="#header" class="toggle"></a>' +
-					'<span class="title">' + $('#logo').html() + '</span>' +
-				'</div>'
-			)
-				.appendTo($body);
+		$nav_a
+			.addClass('scrolly')
+			.on('click', function() {
 
-		// Panel.
-			$header
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'header-visible'
-				});
+				var $this = $(this);
+
+				// External link? Close toggle and bail.
+					if ($this.attr('href').charAt(0) != '#') {
+						closeToggle();
+						return;
+					}
+
+				// Deactivate all links.
+					$nav_a.removeClass('active');
+
+				// Activate link and lock.
+					$this
+						.addClass('active')
+						.addClass('active-locked');
+
+				// Close the mobile drawer if it's open.
+					closeToggle();
+
+			})
+			.each(function() {
+
+				var	$this = $(this),
+					id = $this.attr('href'),
+					$section = $(id);
+
+				// No section for this link? Bail.
+					if ($section.length < 1)
+						return;
+
+				// Scrollex.
+					$section.scrollex({
+						mode: 'middle',
+						top: '5vh',
+						bottom: '5vh',
+						initialize: function() {
+
+							// Deactivate section.
+								$section.addClass('inactive');
+
+						},
+						enter: function() {
+
+							// Activate section.
+								$section.removeClass('inactive');
+
+							// No locked links? Deactivate all links and activate this section's one.
+								if ($nav_a.filter('.active-locked').length == 0) {
+
+									$nav_a.removeClass('active');
+									$this.addClass('active');
+
+								}
+
+							// Otherwise, if this section's link is the one that's locked, unlock it.
+								else if ($this.hasClass('active-locked'))
+									$this.removeClass('active-locked');
+
+						}
+					});
+
+			});
 
 	// Scrolly.
 		$('.scrolly').scrolly({
 			speed: 1000,
 			offset: function() {
 
-				if (breakpoints.active('<=medium'))
-					return $titleBar.height();
-
-				return 0;
+				return $header.outerHeight() || 0;
 
 			}
 		});

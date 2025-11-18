@@ -10,32 +10,59 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" sizes="16x16" href="logos/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="logos/favicon-32x32.png">
+
+		<!-- High-res icons for Android / modern browsers -->
+		<link rel="icon" type="image/png" sizes="192x192" href="logos/icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="logos/icon-512x512.png">
+
+		<!-- Apple touch icon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="logos/apple-touch-icon.png">
+
+		<!-- Fallback shortcut icon -->
+		<link rel="shortcut icon" href="logos/favicon-32x32.png">
+
+		<meta name="theme-color" content="#0b1120">
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/avatar.jpeg" alt="" /></span>
-					<h1 id="logo"><a href="#">Apurva Aggarwal</a></h1>
-					<p>Computer Science and Business at Michigan State University</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">About</a></li>
-						<li><a href="#two">Things I Can Do</a></li>
-						<li><a href="#three">A Few Accomplishments</a></li>
-						<li><a href="#four">Contact</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://instagram.com/apurva_guitar" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
-						<li><a href="https://www.linkedin.com/in/apurva0510/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/apurva0510" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
-						<li><a href="documents/Apurva Aggarwal - Resume.pdf" class="icon solid fa-file" target="_blank"><span class="label">Resume</span></a></li>
-					</ul>
-				</footer>
+			<section id="header" class="apple-nav">
+				<div class="apple-nav-inner">
+					<a href="#one" class="apple-logo" aria-label="Apurva Aggarwal Home">
+						<img src="logos/apple-touch-icon.png" alt="Apurva Aggarwal logo" />
+					</a>
+					<span class="apple-name">Apurva Aggarwal</span>
+
+					<input type="checkbox" id="apple-nav-toggle" class="apple-nav-toggle" aria-label="Toggle navigation menu" />
+					<label for="apple-nav-toggle" class="apple-nav-toggle-button">
+						<span class="sr-only">Open navigation menu</span>
+						<span class="apple-toggle-icon" aria-hidden="true"></span>
+					</label>
+
+						<nav id="nav" class="apple-nav-menu">
+							<a href="#one" class="active">About</a>
+							<a href="#two">Skills</a>
+							<a href="#three">Accomplishments</a>
+							<a href="#four">Contact</a>
+							<a href="documents/Apurva Aggarwal - Resume.pdf" target="_blank" rel="noopener">Resume</a>
+						</nav>
+
+						<div class="apple-nav-actions">
+							<a href="https://www.github.com/apurva0510" class="icon brands fa-github" target="_blank" rel="noopener" aria-label="GitHub">
+								<span class="sr-only">GitHub</span>
+							</a>
+							<a href="https://www.linkedin.com/in/apurva0510/" class="icon brands fa-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+								<span class="sr-only">LinkedIn</span>
+							</a>
+							<a href="https://instagram.com/apurva_guitar" class="icon brands fa-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+								<span class="sr-only">Instagram</span>
+							</a>
+						</div>
+				</div>
 			</section>
 
 		<!-- Wrapper -->
@@ -169,7 +196,7 @@
 					<section id="footer">
 						<div class="container">
 							<ul class="copyright">
-								<li>&copy; 2025 Apurva Aggarwal. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>Copyright &copy; 2025 Apurva Aggarwal. All rights reserved.</li>
 							</ul>
 						</div>
 					</section>
