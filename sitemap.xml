@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://apurva0510.github.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://apurva0510.github.io/</loc>
+	<lastmod>2025-12-09T22:55:52+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://apurva0510.github.io/documents/Apurva%20Aggarwal%20-%20Resume.pdf</loc>
+	<lastmod>2025-12-09T22:55:52+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
 </urlset>
