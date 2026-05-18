@@ -50,6 +50,18 @@ export const navLinks = [
   { href: "#contact", label: "Contact" }
 ];
 
+export const about = {
+  eyebrow: "About",
+  title: "Building systems where data, software, and operations meet.",
+  points: [
+    "Computer Science major and Business minor at Michigan State University, graduating in May 2027.",
+    "Currently at Tesla Energy, building reporting, automation, GenAI workflows, and data quality systems.",
+    "Previously at EY, supported data migration through SQL, validation, reconciliation, and UAT.",
+    "Projects span machine learning, computer vision, sustainability analytics, microservices, and hackathons.",
+    "Strongest in ambiguity, turning messy data and workflows into reliable technical systems."
+  ]
+};
+
 export const highlights = [
   {
     value: "Data Systems",
@@ -173,7 +185,7 @@ export const projects: Project[] = [
     title: "ISA Affiliate CRM",
     image: "/images/pic03.jpg",
     summary:
-      "A planned CRM-style web app for the International Students Association to manage affiliates, meeting attendance, and funding requests.",
+      "A planned CRM-style web app for the ISA to manage affiliates, meeting attendance, and funding requests.",
     tags: [
       "Full-Stack Development",
       "CRM",

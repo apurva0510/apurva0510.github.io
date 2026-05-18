@@ -1,18 +1,20 @@
 ---
 type Props = {
-  name: "github" | "linkedin" | "instagram";
+  name: "github" | "linkedin" | "instagram" | "devpost";
+  hiddenLabel?: boolean;
 };
 
-const { name } = Astro.props;
+const { name, hiddenLabel = true } = Astro.props;
 
 const labels = {
   github: "GitHub",
   linkedin: "LinkedIn",
-  instagram: "Instagram"
+  instagram: "Instagram",
+  devpost: "Devpost"
 };
 ---
 
-<span class="sr-only">{labels[name]}</span>
+{hiddenLabel && <span class="sr-only">{labels[name]}</span>}
 {name === "github" && (
   <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
     <path
@@ -34,6 +36,14 @@ const labels = {
     <path
       fill="currentColor"
       d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.75 2.1a1.35 1.35 0 1 1 0 2.7 1.35 1.35 0 0 1 0-2.7ZM12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z"
+    />
+  </svg>
+)}
+{name === "devpost" && (
+  <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M3 4.5A1.5 1.5 0 0 1 4.5 3h6.35c4.95 0 8.15 3.46 8.15 9s-3.2 9-8.15 9H4.5A1.5 1.5 0 0 1 3 19.5v-15Zm4.2 2.55v9.9h3.45c2.72 0 4.25-1.82 4.25-4.95s-1.53-4.95-4.25-4.95H7.2Z"
     />
   </svg>
 )}

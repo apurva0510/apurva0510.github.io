@@ -3,11 +3,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import SocialIcon from "../components/SocialIcon.astro";
 import {
+  about,
   experience,
   profile,
   projects,
   skillGroups
 } from "../data/portfolio";
+
+const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
+  const normalized = label.toLowerCase();
+  if (normalized === "github") return "github";
+  if (normalized === "devpost") return "devpost";
+  return null;
+};
 ---
 
 <BaseLayout>
@@ -30,15 +38,12 @@ import {
     <section id="about" class="section split-section">
       <div>
         <SectionHeader
-          eyebrow="About"
-          title="I turn messy problems into useful systems."
+          eyebrow={about.eyebrow}
+          title={about.title}
         />
       </div>
       <ul class="about-list">
-        <li>CS major and Business minor at Michigan State University.</li>
-        <li>Focused on data engineering, analytics infrastructure, and business-facing software.</li>
-        <li>Strongest when I can create structure around ambiguous data, workflows, or operations.</li>
-        <li>Building toward technical leadership through execution, ownership, and clear communication.</li>
+        {about.points.map((point) => <li>{point}</li>)}
       </ul>
     </section>
 
@@ -75,37 +80,49 @@ import {
         title="Projects"
         body="Selected work across machine learning, backend systems, internal tools, and interactive software."
       />
-      <div class="project-list">
+      <div class="project-list" data-project-list>
         {projects.map((project) => (
           <article class="project-card">
             <img src={project.image} alt={`${project.title} preview`} />
             <div class="project-content">
               <span class="project-number">{project.number}</span>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
+              <div class="project-title-row">
+                <h3>{project.title}</h3>
+                {project.links && (
+                  <div class="project-links">
+                    {project.links.map((link) => {
+                      const icon = getProjectLinkIcon(link.label);
+                      return (
+                        <a class="project-link" href={link.href} target="_blank" rel="noopener">
+                          {icon && <SocialIcon name={icon} hiddenLabel={false} />}
+                          <span>{link.label}</span>
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+              <p class="project-summary">{project.summary}</p>
               <ul class="tag-list" aria-label={`${project.title} tech stack`}>
                 {project.tags.map((tag) => <li>{tag}</li>)}
               </ul>
               <details>
                 <summary>More details</summary>
                 <div class="case-study">
-                  <h4>Problem</h4>
-                  <p>{project.problem}</p>
-                  <h4>Approach</h4>
-                  <p>{project.approach}</p>
-                  <h4>Result</h4>
-                  <p>{project.result}</p>
+                  <article>
+                    <h4>Problem</h4>
+                    <p>{project.problem}</p>
+                  </article>
+                  <article>
+                    <h4>Approach</h4>
+                    <p>{project.approach}</p>
+                  </article>
+                  <article>
+                    <h4>Result</h4>
+                    <p>{project.result}</p>
+                  </article>
                 </div>
               </details>
-              {project.links && (
-                <div class="project-links">
-                  {project.links.map((link) => (
-                    <a class:list={[link.label.toLowerCase() === "github" && "icon-link"]} href={link.href} target="_blank" rel="noopener" aria-label={link.label}>
-                      {link.label.toLowerCase() === "github" ? <SocialIcon name="github" /> : link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
             </div>
           </article>
         ))}
@@ -172,4 +189,21 @@ import {
   </footer>
 
   <script is:inline src="/assets/js/thankyou.js"></script>
+  <script>
+    const projectList = document.querySelector("[data-project-list]");
+    const projectDetails = Array.from(document.querySelectorAll(".project-card details"));
+
+    const syncProjectGridState = () => {
+      projectList?.classList.toggle(
+        "has-open-details",
+        projectDetails.some((details) => details.hasAttribute("open"))
+      );
+    };
+
+    projectDetails.forEach((details) => {
+      details.addEventListener("toggle", syncProjectGridState);
+    });
+
+    syncProjectGridState();
+  </script>
 </BaseLayout>
