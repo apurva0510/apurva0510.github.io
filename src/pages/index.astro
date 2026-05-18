@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SocialIcon from "../components/SocialIcon.astro";
+import {
+  experience,
+  profile,
+  projects,
+  skillGroups
+} from "../data/portfolio";
+---
+
+<BaseLayout>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card" aria-label="Profile photo">
+        <img src="/images/avatar.jpeg" alt="Portrait of Apurva Aggarwal" />
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">{profile.eyebrow}</p>
+        <h1 id="hero-title">{profile.title}</h1>
+        <p class="hero-summary">{profile.summary}</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button" href={profile.resume} target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section split-section">
+      <div>
+        <SectionHeader
+          eyebrow="About"
+          title="I turn messy problems into useful systems."
+        />
+      </div>
+      <ul class="about-list">
+        <li>CS major and Business minor at Michigan State University.</li>
+        <li>Focused on data engineering, analytics infrastructure, and business-facing software.</li>
+        <li>Strongest when I can create structure around ambiguous data, workflows, or operations.</li>
+        <li>Building toward technical leadership through execution, ownership, and clear communication.</li>
+      </ul>
+    </section>
+
+    <section id="experience" class="section">
+      <SectionHeader
+        eyebrow="Work"
+        title="Experience"
+        body="Technical and leadership roles across data systems, consulting, student organizations, and residential life."
+      />
+      <div class="timeline">
+        {experience.map((item) => (
+          <article class="timeline-item">
+            <span>{item.range}</span>
+            <div>
+              <div class="experience-heading">
+                {item.logo && (
+                  <img class="experience-logo" src={item.logo} alt={item.logoAlt ?? `${item.org} logo`} />
+                )}
+                <div>
+                  <h3>{item.role}</h3>
+                  <p class="org">{item.org}</p>
+                </div>
+              </div>
+              <p>{item.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+      <SectionHeader
+        eyebrow="Builds"
+        title="Projects"
+        body="Selected work across machine learning, backend systems, internal tools, and interactive software."
+      />
+      <div class="project-list">
+        {projects.map((project) => (
+          <article class="project-card">
+            <img src={project.image} alt={`${project.title} preview`} />
+            <div class="project-content">
+              <span class="project-number">{project.number}</span>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <ul class="tag-list" aria-label={`${project.title} tech stack`}>
+                {project.tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+              <details>
+                <summary>More details</summary>
+                <div class="case-study">
+                  <h4>Problem</h4>
+                  <p>{project.problem}</p>
+                  <h4>Approach</h4>
+                  <p>{project.approach}</p>
+                  <h4>Result</h4>
+                  <p>{project.result}</p>
+                </div>
+              </details>
+              {project.links && (
+                <div class="project-links">
+                  {project.links.map((link) => (
+                    <a class:list={[link.label.toLowerCase() === "github" && "icon-link"]} href={link.href} target="_blank" rel="noopener" aria-label={link.label}>
+                      {link.label.toLowerCase() === "github" ? <SocialIcon name="github" /> : link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <SectionHeader
+        eyebrow="Skills"
+        title="Technical Stack"
+        body="Tools and skills grouped by how I use them."
+      />
+      <div class="skill-grid">
+        {skillGroups.map((group) => (
+          <article class="skill-card">
+            <h3>{group.title}</h3>
+            <ul class="tag-list">
+              {group.skills.map((skill) => <li>{skill}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <SectionHeader
+        eyebrow="Contact"
+        title="Let's build something useful."
+        body="Reach out about software, data, AI projects, sustainability, internships, or collaborations."
+      />
+      <form id="contact-form" method="POST" action="https://formspree.io/f/xovygnbr">
+        <input type="hidden" name="_subject" value="New message from Apurva's portfolio" />
+        <div class="hidden-field">
+          <label>Leave this field empty</label>
+          <input type="text" name="_gotcha" />
+        </div>
+        <div class="form-grid">
+          <input type="text" name="name" id="name" placeholder="Name" required />
+          <input type="email" name="email" id="email" placeholder="Email" required />
+        </div>
+        <textarea name="message" id="message" placeholder="Message" rows="6" required></textarea>
+        <div class="form-actions">
+          <button class="button primary" type="submit">Send Message</button>
+          <button class="button" type="reset">Reset</button>
+        </div>
+        <p id="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Copyright &copy; 2026 {profile.name}. Built with Astro and deployed on GitHub Pages.</p>
+    <div>
+      <a class="icon-link" href={profile.social.github} target="_blank" rel="noopener" aria-label="GitHub">
+        <SocialIcon name="github" />
+      </a>
+      <a class="icon-link" href={profile.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+        <SocialIcon name="linkedin" />
+      </a>
+      <a class="icon-link" href={profile.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+        <SocialIcon name="instagram" />
+      </a>
+    </div>
+  </footer>
+
+  <script is:inline src="/assets/js/thankyou.js"></script>
+</BaseLayout>

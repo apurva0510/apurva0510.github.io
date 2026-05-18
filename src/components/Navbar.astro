@@ -1,0 +1,104 @@
+---
+import { navLinks, profile } from "../data/portfolio";
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<header class="navbar" data-navbar>
+  <a class="brand" href="#top" aria-label={`${profile.name} home`}>
+    <img class="brand-logo" src="/logos/icon-192x192.png" alt="" aria-hidden="true" />
+    <span class="brand-name-wrap" aria-hidden="true">
+      <span class="brand-text">{profile.name}</span>
+    </span>
+  </a>
+
+  <a class="mobile-resume-link resume-link" href={profile.resume} target="_blank" rel="noopener">Resume</a>
+
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-menu" aria-label="Main navigation" data-nav-menu>
+    <div class="nav-links">
+      {navLinks.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
+    </div>
+    <div class="nav-actions">
+      <a class="icon-link" href={profile.social.github} target="_blank" rel="noopener" aria-label="GitHub">
+        <SocialIcon name="github" />
+      </a>
+      <a class="icon-link" href={profile.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+        <SocialIcon name="linkedin" />
+      </a>
+      <a class="icon-link" href={profile.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+        <SocialIcon name="instagram" />
+      </a>
+      <a class="resume-link" href={profile.resume} target="_blank" rel="noopener">Resume</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const navbar = document.querySelector("[data-navbar]");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const menu = document.querySelector("[data-nav-menu]");
+  const heroTitle = document.querySelector("#hero-title");
+  const links = Array.from(document.querySelectorAll("[data-nav-link]"));
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute("href") || ""))
+    .filter((section): section is Element => section instanceof Element);
+
+  const setMenuOpen = (isOpen: boolean) => {
+    navbar?.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+    toggle?.setAttribute("aria-expanded", String(isOpen));
+    toggle?.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !(navbar?.classList.contains("is-open") ?? false);
+    setMenuOpen(isOpen);
+  });
+
+  menu?.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target instanceof HTMLAnchorElement) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
+  });
+
+  const setActiveLink = () => {
+    let current = sections[0]?.id;
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 120) current = section.id;
+    }
+
+    links.forEach((link) => {
+      link.toggleAttribute("aria-current", link.getAttribute("href") === `#${current}`);
+    });
+  };
+
+  const setBrandVisibility = () => {
+    if (!(navbar instanceof HTMLElement) || !(heroTitle instanceof HTMLElement)) return;
+
+    const navBottom = navbar.getBoundingClientRect().bottom;
+    const titleBottom = heroTitle.getBoundingClientRect().bottom;
+    navbar.classList.toggle("show-brand-name", titleBottom <= navBottom + 12);
+  };
+
+  setActiveLink();
+  setBrandVisibility();
+  requestAnimationFrame(setBrandVisibility);
+  document.addEventListener("scroll", () => {
+    setActiveLink();
+    setBrandVisibility();
+  }, { passive: true });
+  window.addEventListener("resize", setBrandVisibility);
+  window.addEventListener("hashchange", () => requestAnimationFrame(setBrandVisibility));
+</script>
