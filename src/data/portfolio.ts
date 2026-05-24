@@ -207,6 +207,7 @@ export const projects: Project[] = [
     summary:
       "A microservices-based food marketplace project focused on user authentication, service separation, and containerized development.",
     tags: [
+      "Python",
       "Flask",
       "SQLite",
       "Docker",
@@ -270,7 +271,7 @@ export const projects: Project[] = [
   summary:
     "A sustainability-focused data analysis project evaluating regional energy readiness for potential data center expansion.",
   tags: [
-    "Excel",
+    "Tableau",
     "Data Analytics",
     "Sustainability",
     "Energy Modeling",
@@ -279,7 +280,7 @@ export const projects: Project[] = [
   problem:
     "Large data centers can create significant energy demand, so expansion decisions need to account for regional energy availability, renewable mix, and grid stability.",
   approach:
-    "Analyzed regional energy datasets using Excel, PivotTables, and visualizations to compare power availability, usage patterns, renewable energy mix, and ability to handle increased demand.",
+    "Analyzed regional energy datasets using Tableau and visualizations to compare power availability, usage patterns, renewable energy mix, and ability to handle increased demand.",
   result:
     "Translated energy and sustainability data into recommendations about which regions appeared better equipped to support future data center growth."
 },
@@ -310,11 +311,11 @@ export const skillGroups = [
     skills: [
       "Python",
       "SQL",
+      "ETL Workflows",
       "Data Cleaning",
+      "Data Validation",
       "Fuzzy Matching",
       "Indexing",
-      "Caching",
-      "Workflow Design",
       "Automation"
     ]
   },
@@ -323,11 +324,13 @@ export const skillGroups = [
     skills: [
       "Power BI",
       "Excel",
-      "KPI Design",
       "Data Modeling",
-      "Dashboards",
-      "Validation Logic",
-      "Reporting Systems"
+      "KPI Logic",
+      "Dashboarding",
+      "Reporting Systems",
+      "Data Visualization",
+      "Quality Checks",
+      "Big Data Tools"
     ]
   },
   {
@@ -336,41 +339,24 @@ export const skillGroups = [
       "TypeScript",
       "JavaScript",
       "C++",
+      "Flask",
+      "Docker",
       "Machine Learning",
-      "Predictive Analytics",
-      "Streamlit",
+      "Computer Vision",
       "Git"
     ]
   },
   {
-    title: "Business + Leadership",
+    title: "Business + Execution",
     skills: [
       "Stakeholder Communication",
-      "Business Process Understanding",
-      "Ownership",
+      "Process Improvement",
+      "Requirements Gathering",
+      "Cross-functional Collaboration",
       "Systems Thinking",
-      "Ambiguity Handling"
+      "Ambiguity Handling",
+      "Ownership",
+      "Technical Documentation"
     ]
-  }
-];
-
-export const leadership = [
-  {
-    title: "Systems Thinking",
-    org: "How I approach work",
-    body:
-      "I look for the workflow, dependency, repeated pattern, or constraint underneath the immediate task, then try to improve the system itself."
-  },
-  {
-    title: "Execution Bias",
-    org: "How I create momentum",
-    body:
-      "I move from ambiguity into practical output quickly, then iterate based on what works instead of waiting for perfect first-pass clarity."
-  },
-  {
-    title: "Ownership",
-    org: "How I build trust",
-    body:
-      "I step into gaps, follow through, and treat outcomes as something I am responsible for, especially when the task is not perfectly defined."
   }
 ];
