@@ -301,7 +301,8 @@ export const projects: Project[] = [
     approach:
       "Built a playable terminal game in Python, focusing on core mechanics, structured logic, and a foundation that could later be expanded into a graphical UI.",
     result:
-      "Developed a functional game project that strengthened my ability to organize interactive software systems from scratch."
+      "Developed a functional game project that strengthened my ability to organize interactive software systems from scratch.",
+    links: [{ label: "GitHub", href: "https://github.com/apurva0510/battleship" }]
   }
 ];
 
