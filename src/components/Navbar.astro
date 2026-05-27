@@ -5,7 +5,7 @@ import SocialIcon from "./SocialIcon.astro";
 
 <header class="navbar" data-navbar>
   <a class="brand" href="#top" aria-label={`${profile.name} home`}>
-    <img class="brand-logo" src="/logos/icon-192x192.png" alt="" aria-hidden="true" />
+    <span class="brand-logo" aria-hidden="true">ap.</span>
     <span class="brand-name-wrap" aria-hidden="true">
       <span class="brand-text">{profile.name}</span>
     </span>
@@ -74,10 +74,12 @@ import SocialIcon from "./SocialIcon.astro";
 
   const setActiveLink = () => {
     let current = sections[0]?.id;
-    for (const section of sections) {
+    const activationLine = window.innerHeight * 0.2;
+
+    sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      if (rect.top <= 120) current = section.id;
-    }
+      if (rect.top <= activationLine) current = section.id;
+    });
 
     links.forEach((link) => {
       link.toggleAttribute("aria-current", link.getAttribute("href") === `#${current}`);
