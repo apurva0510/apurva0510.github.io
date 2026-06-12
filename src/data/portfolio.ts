@@ -31,7 +31,7 @@ export const profile = {
   eyebrow: "Computer Science major + Business minor at Michigan State University",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
-    "Building data systems and practical software for messy real-world problems",
+    "Building data systems, analytics tools, and business-facing software for messy real-world workflows",
   availability:
     "Open to new-grad opportunities in Data Analytics Engineering, Data Engineering, Analytics Infrastructure, and Business-facing Software.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
@@ -52,13 +52,13 @@ export const navLinks = [
 
 export const about = {
   eyebrow: "About",
-  title: "Building systems where data, software, and operations meet.",
+  title: "I build useful systems where data, software, and operations meet.",
   points: [
     "Computer Science major and Business minor at Michigan State University, graduating in May 2027.",
-    "Currently at Tesla Energy, building reporting, automation, GenAI workflows, and data quality systems.",
-    "Previously at EY, supported data migration through SQL, validation, reconciliation, and UAT.",
-    "Projects span machine learning, computer vision, sustainability analytics, microservices, and hackathons.",
-    "Strongest in ambiguity, turning messy data and workflows into reliable technical systems."
+    "Currently at Tesla Residential Energy, working across entity resolution, reporting automation, GenAI workflows, and Sales Ops analytics.",
+    "Previously at EY, supported a $13M enterprise migration through SQL Server validation, UAT, reconciliation, Azure Blob Storage, and Azure DevOps.",
+    "Projects focus on market intelligence tooling, applied machine learning, backend microservices, and sustainability analytics.",
+    "Strongest in ambiguity: turning messy data, manual workflows, and operational questions into reliable technical systems."
   ]
 };
 
@@ -115,13 +115,13 @@ export const updates = [
 
 export const experience: Experience[] = [
   {
-    range: "Jan 2026 - Present",
+    range: "Jan 2026 - Aug 2026",
     role: "Data Analytics Engineering Intern",
     org: "Tesla",
     logo: "/logos/organizations/tesla-symbol.jpg",
     logoAlt: "Tesla logo",
     body:
-      "Working on Residential Energy data systems, operational reporting, dashboard automation, KPI logic, data quality, and workflow improvements in a business-facing technical environment."
+      "Building Residential Energy analytics systems across entity resolution, executive-facing solar reporting, CRM dashboard automation, GenAI workflow agents, and percentile-based account analysis for Sales leadership."
   },
   {
     range: "May 2025 - Aug 2025",
@@ -130,7 +130,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/ey.png",
     logoAlt: "EY logo",
     body:
-      "Contributed to enterprise systems work involving ETL SQL scripts, data validation, reconciliation, UAT support, issue triage, and cross-functional stakeholder coordination."
+      "Supported a $13M enterprise migration by validating 10K+ records, automating SQL Server checks, assisting Azure Blob Storage migration, and triaging defects in Azure DevOps."
   },
   {
     range: "May 2026 - Present",
@@ -139,7 +139,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/spartahack.jpeg",
     logoAlt: "SpartaHack logo",
     body:
-      "Help lead planning and execution for MSU's student-run hackathon, supporting team coordination, event operations, logistics, and the overall hacker experience."
+      "Help lead planning and execution for MSU's 600+ attendee student-run hackathon, coordinating event operations, team execution, logistics, and the overall hacker experience."
   },
   {
     range: "Apr 2026 - Present",
@@ -148,16 +148,16 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/isa.jpeg",
     logoAlt: "International Students Association logo",
     body:
-      "Lead technical planning and development for ISA systems, including website infrastructure, affiliate tooling, and internal workflow improvements."
+      "Lead technical planning for ISA's centralized affiliate platform, website infrastructure, internal tooling, and workflow improvements for student organization operations."
   },
   {
     range: "Aug 2024 - Dec 2024",
-    role: "Data Analyst",
+    role: "Data Analytics Fellow",
     org: "The Global Career Accelerator",
     logo: "/logos/organizations/global-career-accelerator.jpeg",
     logoAlt: "Global Career Accelerator logo",
     body:
-      "Analyzed real-world business datasets using Excel, PivotTables, XLOOKUP, A/B testing, and data visualization, translating findings into actionable recommendations across media, sustainability, and operations-focused projects."
+      "Analyzed 30M+ engagement records, evaluated Grammy.com KPIs, designed 95% confidence A/B tests, built SQL/Tableau dashboards, and modeled regional energy readiness for Intel-sponsored data center analysis."
   },
   {
     range: "Aug 2024 - Present",
@@ -166,7 +166,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/msu.webp",
     logoAlt: "Michigan State University logo",
     body:
-      "Support residents through communication, conflict management, community programming, crisis response, and consistent people-facing ownership."
+      "Support 80+ residents through communication, conflict management, community programming, crisis response, and consistent people-facing ownership."
   },
   {
     range: "Aug 2023 - Present",
@@ -175,13 +175,79 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/msu.webp",
     logoAlt: "Michigan State University logo",
     body:
-      "Building a technical foundation while intentionally connecting software, data systems, analytics, and business strategy."
+      "Maintaining a 3.95 GPA while studying computer science, business, artificial intelligence, big data analysis, cloud development, and data structures."
   }
 ];
 
 export const projects: Project[] = [
   {
     number: "01",
+    title: "Argus",
+    image: "/images/projects/argus-dashboard.png",
+    summary:
+      "A Streamlit/PostgreSQL market intelligence platform for tracking AI infrastructure companies, SEC filings, news, watchlists, and opportunity signals.",
+    tags: [
+      "Python",
+      "Streamlit",
+      "PostgreSQL",
+      "ETL",
+      "SQLAlchemy",
+      "GitHub Actions"
+    ],
+    problem:
+      "AI infrastructure research was scattered across tickers, news, SEC filings, watchlists, notes, and manual checks, making it difficult to monitor themes consistently.",
+    approach:
+      "Built a dashboard with scheduled data ingestion, thematic watchlists, company detail pages, filings/news refreshes, scoring models, freshness checks, and local-to-hosted database paths.",
+    result:
+      "Created a portfolio-grade decision-support tool tracking 50+ companies with daily user feedback, automated refresh workflows, explainable signals, and a maintained research surface.",
+    links: [{ label: "GitHub", href: "https://github.com/apurva0510/argus" }]
+  },
+  {
+    number: "02",
+    title: "FarmX - Sustainable Agriculture",
+    image: "/images/projects/farmx.png",
+    summary:
+      "An MHacks-winning machine learning tool for crop suitability and NPK nutrient recommendations using soil and weather inputs.",
+    tags: [
+      "Python",
+      "scikit-learn",
+      "Random Forest",
+      "Streamlit",
+      "Pandas",
+      "NumPy"
+    ],
+    problem:
+      "Agricultural decisions around crop suitability and nutrient use affect yield, cost, and waste, but are often made without adaptive local context.",
+    approach:
+      "Built a Random Forest regression workflow with weather and soil APIs, Pandas/NumPy preprocessing, Streamlit caching, and a lightweight decision-support interface.",
+    result:
+      "Won Best Sustainability Track at MHacks 2024, reduced NPK waste by 25%, and improved response time by 30% through caching optimization.",
+    links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
+  },
+  {
+    number: "03",
+    title: "Micro Foods Market",
+    image: "/images/projects/micro-foods-architecture.svg",
+    summary:
+      "A Dockerized Flask microservices backend for a food marketplace, with REST APIs, JWT authentication, SQLite, and service orchestration.",
+    tags: [
+      "Python",
+      "Flask",
+      "SQLite",
+      "Docker",
+      "REST APIs",
+      "JWT"
+    ],
+    problem:
+      "A distributed marketplace backend needs clear service boundaries for authentication, orders, search, logging, and product management.",
+    approach:
+      "Built 5 Flask microservices with REST endpoints, JWT-based authentication, SQLite persistence, Docker Compose networking, and separated transaction workflows.",
+    result:
+      "Created a cloud-deployment-ready backend foundation that strengthened service orchestration, authentication, and reusable architecture patterns.",
+    links: [{ label: "GitHub", href: "https://github.com/apurva0510/MicroFoodMarket" }]
+  },
+  {
+    number: "04",
     title: "ISA Affiliate CRM",
     image: "/images/pic03.jpg",
     summary:
@@ -201,91 +267,48 @@ export const projects: Project[] = [
       "Currently in planning and early development, with focus on requirements, hosting constraints, data policies, and long-term maintainability."
   },
   {
-    number: "02",
-    title: "Micro Foods Market",
-    image: "/images/projects/micro-foods-architecture.svg",
+    number: "05",
+    title: "Celebrity Face Recognition",
+    image: "/images/projects/alexnet.jpg",
     summary:
-      "A microservices-based food marketplace project focused on user authentication, service separation, and containerized development.",
+      "A PyTorch computer vision project that fine-tuned AlexNet to classify a 17-class celebrity face dataset.",
     tags: [
       "Python",
-      "Flask",
-      "SQLite",
-      "Docker",
-      "Microservices",
-      "Backend Development"
+      "PyTorch",
+      "AlexNet",
+      "Transfer Learning",
+      "Computer Vision"
     ],
     problem:
-      "Modern web systems need clean separation between services, authentication, data storage, and application logic.",
+      "Image classification models need to distinguish between visually similar faces while handling variation in lighting, pose, and image quality.",
     approach:
-      "Built and worked with backend services using Flask, SQLite, and Docker Compose, with reusable authentication and user-service patterns.",
+      "Fine-tuned an AlexNet-based model using transfer learning, data augmentation, dropout regularization, k-fold cross-validation, and confusion-matrix error analysis.",
     result:
-      "Created a foundation that can be refactored and reused in future web systems, including ISA's planned affiliate CRM.",
-    links: [{ label: "GitHub", href: "https://github.com/apurva0510/MicroFoodMarket" }]
+      "Reached 57.35% accuracy on a high intra-class similarity dataset while building a clearer understanding of model validation and error inspection.",
+    links: [{ label: "GitHub", href: "https://github.com/apurva0510/celeb-face-rec" }]
   },
-  {
-    number: "03",
-    title: "FarmX - Sustainable Agriculture",
-    image: "/images/projects/farmx.png",
-    summary:
-      "A machine-learning prototype for agriculture decision support, built quickly under hackathon constraints.",
-    tags: [
-      "Python",
-      "Machine Learning",
-      "Predictive Analytics",
-      "Sustainability",
-      "Hackathon"
-    ],
-    problem:
-      "Agricultural decisions around crop suitability and nitrogen usage have practical consequences for yield, cost, and sustainability.",
-    approach:
-      "Built a prediction workflow using environmental and agricultural input data, then shaped it into a usable prototype for quick decision support.",
-    result:
-      "Won Best Sustainability Track at MHacks and showed my ability to turn an idea into a meaningful prototype under pressure.",
-    links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
-  },
-  {
-  number: "04",
-  title: "Celebrity Face Recognition",
-  image: "/images/projects/alexnet.jpg",
-  summary:
-    "A computer vision project that fine-tuned a deep learning model to classify celebrity faces across multiple classes.",
-  tags: [
-    "Python",
-    "PyTorch",
-    "Computer Vision",
-    "Deep Learning",
-    "Image Classification"
-  ],
-  problem:
-    "Image classification models need to distinguish between visually similar faces while handling variation in lighting, pose, and image quality.",
-  approach:
-    "Fine-tuned an AlexNet-based model using transfer learning, structured the dataset across multiple celebrity classes, and evaluated performance through repeated validation.",
-  result:
-    "Built a working face recognition pipeline that strengthened my understanding of computer vision, model training, validation, and applied deep learning.",
-  links: [{ label: "GitHub", href: "https://github.com/apurva0510/celeb-face-rec" }]
-},
-{
-  number: "05",
-  title: "Intel Sustainability Modeling",
-  image: "/images/projects/intel-sustainability.webp",
-  summary:
-    "A sustainability-focused data analysis project evaluating regional energy readiness for potential data center expansion.",
-  tags: [
-    "Tableau",
-    "Data Analytics",
-    "Sustainability",
-    "Energy Modeling",
-    "Data Visualization"
-  ],
-  problem:
-    "Large data centers can create significant energy demand, so expansion decisions need to account for regional energy availability, renewable mix, and grid stability.",
-  approach:
-    "Analyzed regional energy datasets using Tableau and visualizations to compare power availability, usage patterns, renewable energy mix, and ability to handle increased demand.",
-  result:
-    "Translated energy and sustainability data into recommendations about which regions appeared better equipped to support future data center growth."
-},
   {
     number: "06",
+    title: "Intel Sustainability Modeling",
+    image: "/images/projects/intel-sustainability.webp",
+    summary:
+      "A sustainability analytics project evaluating regional energy readiness for potential data center expansion.",
+    tags: [
+      "Tableau",
+      "Data Analytics",
+      "Sustainability",
+      "Energy Modeling",
+      "Data Visualization"
+    ],
+    problem:
+      "Data center expansion creates significant energy demand, so site-selection decisions need to account for regional capacity, renewable mix, and long-term grid readiness.",
+    approach:
+      "Modeled regional energy availability and renewable capacity, then built Tableau visualizations to compare five U.S. regions under sustainability constraints.",
+    result:
+      "Ranked U.S. regions for data center readiness and translated energy data into scenario-driven infrastructure recommendations."
+  },
+  {
+    number: "07",
     title: "Battleship Terminal Game",
     image: "/images/projects/battleship.png",
     summary:
@@ -308,56 +331,54 @@ export const projects: Project[] = [
 
 export const skillGroups = [
   {
-    title: "Data Engineering",
+    title: "Languages",
     skills: [
       "Python",
       "SQL",
-      "ETL Workflows",
-      "Data Cleaning",
-      "Data Validation",
-      "Fuzzy Matching",
-      "Indexing",
-      "Automation"
+      "C/C++",
+      "JavaScript",
+      "R",
+      "ARM64 Assembly"
     ]
   },
   {
-    title: "Analytics Engineering",
+    title: "Data + ML",
+    skills: [
+      "Pandas",
+      "NumPy",
+      "scikit-learn",
+      "PyTorch",
+      "TensorFlow",
+      "Entity Resolution",
+      "A/B Testing",
+      "KPI Design"
+    ]
+  },
+  {
+    title: "Cloud + Systems",
+    skills: [
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Azure",
+      "Docker",
+      "Docker Compose",
+      "Git",
+      "GitHub Actions",
+      "REST APIs",
+      "Flask"
+    ]
+  },
+  {
+    title: "Analytics + Execution",
     skills: [
       "Power BI",
+      "Tableau",
       "Excel",
-      "Data Modeling",
-      "KPI Logic",
       "Dashboarding",
       "Reporting Systems",
-      "Data Visualization",
-      "Quality Checks",
-      "Big Data Tools"
-    ]
-  },
-  {
-    title: "Software + ML",
-    skills: [
-      "TypeScript",
-      "JavaScript",
-      "C++",
-      "Flask",
-      "Docker",
-      "Machine Learning",
-      "Computer Vision",
-      "Git"
-    ]
-  },
-  {
-    title: "Business + Execution",
-    skills: [
+      "Data Validation",
       "Stakeholder Communication",
-      "Process Improvement",
-      "Requirements Gathering",
-      "Cross-functional Collaboration",
-      "Systems Thinking",
-      "Ambiguity Handling",
-      "Ownership",
-      "Technical Documentation"
+      "Process Improvement"
     ]
   }
 ];
