@@ -31,7 +31,7 @@ export const profile = {
   eyebrow: "Computer Science major + Business minor at Michigan State University",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
-    "Building data systems, analytics tools, and business-facing software for messy real-world workflows",
+    "Building analytics systems, automation workflows, and AI-enabled tools for sales operations, energy, and real-world business data",
   availability:
     "Open to new-grad opportunities in Data Analytics Engineering, Data Engineering, Analytics Infrastructure, and Business-facing Software.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
@@ -45,7 +45,7 @@ export const profile = {
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Work" },
-  { href: "#projects", label: "Builds" },
+  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" }
 ];
@@ -121,7 +121,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/tesla-symbol.jpg",
     logoAlt: "Tesla logo",
     body:
-      "Building Residential Energy analytics systems across entity resolution, executive-facing solar reporting, CRM dashboard automation, GenAI workflow agents, and percentile-based account analysis for Sales leadership."
+      "Building Residential Energy analytics and automation systems across entity resolution, executive-facing solar reporting, CRM dashboards, GenAI workflow agents, and 4K+ installer performance benchmarking for Sales leadership."
   },
   {
     range: "May 2025 - Aug 2025",
@@ -199,7 +199,7 @@ export const projects: Project[] = [
     approach:
       "Built a dashboard with scheduled data ingestion, thematic watchlists, company detail pages, filings/news refreshes, scoring models, freshness checks, and local-to-hosted database paths.",
     result:
-      "Created a portfolio-grade decision-support tool tracking 50+ companies with daily user feedback, automated refresh workflows, explainable signals, and a maintained research surface.",
+      "Created a portfolio-grade decision-support tool tracking 50+ companies with daily user feedback, a 27-table PostgreSQL warehouse, scheduled ETL workflows, and explainable scoring signals.",
     links: [{ label: "GitHub", href: "https://github.com/apurva0510/argus" }]
   },
   {
@@ -221,7 +221,7 @@ export const projects: Project[] = [
     approach:
       "Built a Random Forest regression workflow with weather and soil APIs, Pandas/NumPy preprocessing, Streamlit caching, and a lightweight decision-support interface.",
     result:
-      "Won Best Sustainability Track at MHacks 2024, reduced NPK waste by 25%, and improved response time by 30% through caching optimization.",
+      "Won Best Sustainability Track at MHacks 2024 and improved response time by 30% through caching optimization.",
     links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
   },
   {
@@ -248,7 +248,7 @@ export const projects: Project[] = [
   },
   {
     number: "04",
-    title: "ISA Affiliate CRM",
+    title: "ISA Affiliate CRM - In Progress",
     image: "/images/pic03.jpg",
     summary:
       "A planned CRM-style web app for the ISA to manage affiliates, meeting attendance, and funding requests.",
@@ -306,26 +306,6 @@ export const projects: Project[] = [
       "Modeled regional energy availability and renewable capacity, then built Tableau visualizations to compare five U.S. regions under sustainability constraints.",
     result:
       "Ranked U.S. regions for data center readiness and translated energy data into scenario-driven infrastructure recommendations."
-  },
-  {
-    number: "07",
-    title: "Battleship Terminal Game",
-    image: "/images/projects/battleship.png",
-    summary:
-      "A Python terminal-based game project focused on gameplay logic, state management, and object-oriented design.",
-    tags: [
-      "Python",
-      "Game Logic",
-      "Object-Oriented Programming",
-      "Terminal UI"
-    ],
-    problem:
-      "Games require clean handling of state, user input, rules, and repeated interactions, even in a simple terminal environment.",
-    approach:
-      "Built a playable terminal game in Python, focusing on core mechanics, structured logic, and a foundation that could later be expanded into a graphical UI.",
-    result:
-      "Developed a functional game project that strengthened my ability to organize interactive software systems from scratch.",
-    links: [{ label: "GitHub", href: "https://github.com/apurva0510/battleship" }]
   }
 ];
 
@@ -365,7 +345,8 @@ export const skillGroups = [
       "Git",
       "GitHub Actions",
       "REST APIs",
-      "Flask"
+      "Flask",
+      "CI/CD"
     ]
   },
   {
