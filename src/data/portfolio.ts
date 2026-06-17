@@ -33,7 +33,7 @@ export const profile = {
   summary:
     "Building analytics systems, automation workflows, and AI-enabled tools for sales operations, energy, and real-world business data",
   availability:
-    "Open to new-grad opportunities in Data Analytics Engineering, Data Engineering, Analytics Infrastructure, and Business-facing Software.",
+    "Open to new-grad opportunities in Data Analytics Engineering, Data Engineering, Analytics Infrastructure, and business-facing software.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
   social: {
     github: "https://www.github.com/apurva0510",
@@ -329,37 +329,31 @@ export const skillGroups = [
       "scikit-learn",
       "PyTorch",
       "TensorFlow",
-      "Entity Resolution",
-      "A/B Testing",
-      "KPI Design"
+      "PostgreSQL",
+      "SQLAlchemy"
     ]
   },
   {
     title: "Cloud + Systems",
     skills: [
-      "PostgreSQL",
-      "SQLAlchemy",
       "Azure",
       "Docker",
-      "Docker Compose",
       "Git",
       "GitHub Actions",
       "REST APIs",
       "Flask",
+      "Docker Compose",
       "CI/CD"
     ]
   },
   {
-    title: "Analytics + Execution",
+    title: "Analytics",
     skills: [
       "Power BI",
       "Tableau",
       "Excel",
-      "Dashboarding",
-      "Reporting Systems",
-      "Data Validation",
-      "Stakeholder Communication",
-      "Process Improvement"
+      "KPI Design",
+      "A/B Testing"
     ]
   }
 ];
