@@ -31,7 +31,7 @@ export const profile = {
   eyebrow: "Computer Science major + Business minor at Michigan State University",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
-    "Building analytics systems, automation workflows, and AI-enabled tools for sales operations, energy, and real-world business data",
+    "Building analytics systems, automation workflows, and AI-enabled tools for messy real-world business data",
   availability:
     "Open to new-grad opportunities in Data Analytics Engineering, Data Engineering, Analytics Infrastructure, and business-facing software.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
@@ -207,7 +207,7 @@ export const projects: Project[] = [
     title: "FarmX - Sustainable Agriculture",
     image: "/images/projects/farmx.png",
     summary:
-      "An MHacks-winning machine learning tool for crop suitability and NPK nutrient recommendations using soil and weather inputs.",
+      "An MHacks-winning Streamlit platform for optimal nitrogen prediction, crop yield projection, and farmer-facing soil resources.",
     tags: [
       "Python",
       "scikit-learn",
@@ -217,11 +217,11 @@ export const projects: Project[] = [
       "NumPy"
     ],
     problem:
-      "Agricultural decisions around crop suitability and nutrient use affect yield, cost, and waste, but are often made without adaptive local context.",
+      "Farmers need more personalized guidance around soil health, fertilizer use, and crop selection, especially when fertilizer costs and overuse create practical and environmental tradeoffs.",
     approach:
-      "Built a Random Forest regression workflow with weather and soil APIs, Pandas/NumPy preprocessing, Streamlit caching, and a lightweight decision-support interface.",
+      "Worked on the Streamlit frontend and ML models, using crop and soil datasets with temperature, humidity, pH, rainfall, crop weight, moisture, crop type, and harvested area features.",
     result:
-      "Won Best Sustainability Track at MHacks 2024 and improved response time by 30% through caching optimization.",
+      "Won Best Sustainability Track at MHacks 2024 with a 24-hour prototype for nitrogen recommendations, crop yield comparison, and farmer resource access.",
     links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
   },
   {
@@ -248,10 +248,10 @@ export const projects: Project[] = [
   },
   {
     number: "04",
-    title: "ISA Affiliate CRM - In Progress",
+    title: "ISA Affiliate CRM",
     image: "/images/pic03.jpg",
     summary:
-      "A planned CRM-style web app for the ISA to manage affiliates, meeting attendance, and funding requests.",
+      "An in-progress CRM-style web app for the ISA to manage affiliates, meeting attendance, and funding requests.",
     tags: [
       "Full-Stack Development",
       "CRM",
