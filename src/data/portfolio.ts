@@ -31,9 +31,9 @@ export const profile = {
   eyebrow: "Computer Science major + Business minor at Michigan State University",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
-    "Building analytics systems, automation workflows, and AI-enabled tools for messy real-world business data",
+    "Building data pipelines, analytics systems, and AI-enabled tools for messy real-world business data",
   availability:
-    "Open to new-grad opportunities in Data Analytics Engineering, Data Engineering, Analytics Infrastructure, and business-facing software.",
+    "Targeting new-grad roles in Data Engineering, Analytics Engineering, AI Engineering, Software Engineering, and ML Engineering.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
   social: {
     github: "https://www.github.com/apurva0510",
@@ -55,23 +55,33 @@ export const about = {
   title: "I build useful systems where data, software, and operations meet.",
   points: [
     "Computer Science major and Business minor at Michigan State University, graduating in May 2027.",
-    "Currently at Tesla Residential Energy, working across entity resolution, reporting automation, GenAI workflows, and Sales Ops analytics.",
+    "Currently at Tesla Residential Energy, working across entity resolution, reporting automation, GenAI workflows, benchmarking, and Sales Ops analytics.",
     "Previously at EY, supported a $13M enterprise migration through SQL Server validation, UAT, reconciliation, Azure Blob Storage, and Azure DevOps.",
-    "Projects focus on market intelligence tooling, applied machine learning, backend microservices, and sustainability analytics.",
-    "Strongest in ambiguity: turning messy data, manual workflows, and operational questions into reliable technical systems."
+    "Projects focus on data products, applied machine learning, backend systems, and decision-support analytics.",
+    "Strongest in ambiguity: turning messy data, manual workflows, and operational questions into reliable software and analytics systems."
   ]
 };
 
 export const highlights = [
   {
-    value: "Data Systems",
+    value: "Data Engineering",
     label:
-      "Messy data, matching logic, workflow design, reporting automation, and repeatable tooling"
+      "Pipelines, matching logic, validation workflows, warehouse-backed tools, and repeatable automation"
+  },
+  {
+    value: "Analytics",
+    label:
+      "KPI logic, dashboarding, benchmarking, reporting systems, and decision-ready analysis"
+  },
+  {
+    value: "AI + Software",
+    label:
+      "GenAI workflows, applied ML projects, backend services, APIs, and user-facing technical systems"
   },
   {
     value: "Business Context",
     label:
-      "Technical work framed around decisions, operations, reliability, and usefulness"
+      "Technical work framed around operations, reliability, stakeholders, and practical usefulness"
   },
   {
     value: "Ownership",
@@ -311,49 +321,56 @@ export const projects: Project[] = [
 
 export const skillGroups = [
   {
-    title: "Languages",
+    title: "Data Engineering",
     skills: [
       "Python",
       "SQL",
-      "C/C++",
-      "JavaScript",
-      "R",
-      "ARM64 Assembly"
+      "PostgreSQL",
+      "SQLAlchemy",
+      "ETL Pipelines",
+      "Data Validation",
+      "Entity Resolution",
+      "GitHub Actions"
     ]
   },
   {
-    title: "Data + ML",
+    title: "Analytics Engineering",
     skills: [
       "Pandas",
       "NumPy",
-      "scikit-learn",
-      "PyTorch",
-      "TensorFlow",
-      "PostgreSQL",
-      "SQLAlchemy"
-    ]
-  },
-  {
-    title: "Cloud + Systems",
-    skills: [
-      "Azure",
-      "Docker",
-      "Git",
-      "GitHub Actions",
-      "REST APIs",
-      "Flask",
-      "Docker Compose",
-      "CI/CD"
-    ]
-  },
-  {
-    title: "Analytics",
-    skills: [
       "Power BI",
       "Tableau",
       "Excel",
       "KPI Design",
-      "A/B Testing"
+      "A/B Testing",
+      "Reporting Systems"
+    ]
+  },
+  {
+    title: "AI + ML",
+    skills: [
+      "GenAI Workflows",
+      "scikit-learn",
+      "PyTorch",
+      "Random Forest",
+      "Transfer Learning",
+      "Computer Vision",
+      "Model Evaluation",
+      "Feature Engineering"
+    ]
+  },
+  {
+    title: "Software + Cloud",
+    skills: [
+      "JavaScript",
+      "C/C++",
+      "Azure",
+      "Docker",
+      "Docker Compose",
+      "REST APIs",
+      "Flask",
+      "CI/CD",
+      "Git"
     ]
   }
 ];
