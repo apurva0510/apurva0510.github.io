@@ -116,7 +116,7 @@ export const updates = [
 export const experience: Experience[] = [
   {
     range: "Jan 2026 - Aug 2026",
-    role: "Data Analytics Engineering Intern",
+    role: "Data Analyst Intern",
     org: "Tesla",
     logo: "/logos/organizations/tesla-symbol.jpg",
     logoAlt: "Tesla logo",
