@@ -195,7 +195,7 @@ export const projects: Project[] = [
     title: "Argus",
     image: "/images/projects/argus-dashboard.png",
     summary:
-      "A Streamlit/PostgreSQL market intelligence platform for tracking AI infrastructure companies, SEC filings, news, watchlists, and opportunity signals.",
+      "A Streamlit/PostgreSQL market intelligence platform combining explainable opportunity scoring, peer-relative valuation, catalyst analysis, and investment thesis tracking.",
     tags: [
       "Python",
       "Streamlit",
@@ -205,12 +205,14 @@ export const projects: Project[] = [
       "GitHub Actions"
     ],
     problem:
-      "AI infrastructure research was scattered across tickers, news, SEC filings, watchlists, notes, and manual checks, making it difficult to monitor themes consistently.",
+      "AI infrastructure research was scattered across market data, SEC filings, news, catalysts, watchlists, and investment notes, making it difficult to evaluate companies and themes consistently.",
     approach:
-      "Built a dashboard with scheduled data ingestion, thematic watchlists, company detail pages, filings/news refreshes, scoring models, freshness checks, and local-to-hosted database paths.",
+      "Built scheduled ingestion pipelines and a 33-table PostgreSQL data model supporting company research, peer-relative valuation, bull/bear thesis tracking, catalyst impact analysis, thematic indices, and historically tested opportunity scores.",
     result:
-      "Created a portfolio-grade decision-support tool tracking 50+ companies with daily user feedback, a 27-table PostgreSQL warehouse, scheduled ETL workflows, and explainable scoring signals.",
-    links: [{ label: "GitHub", href: "https://github.com/apurva0510/argus" }]
+      "Created a portfolio-grade decision-support platform tracking 53 companies, with daily user feedback, explainable scoring, 5D/20D/60D signal backtests, and analysis of earnings and SEC-filing reactions.",
+    links: [
+      { label: "GitHub", href: "https://github.com/apurva0510/argus" }
+    ]
   },
   {
     number: "02",
