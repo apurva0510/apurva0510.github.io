@@ -131,7 +131,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/tesla-symbol.jpg",
     logoAlt: "Tesla logo",
     body:
-      "Building Residential Energy analytics and automation systems across entity resolution, executive-facing solar reporting, CRM dashboards, GenAI workflow agents, and 4K+ installer performance benchmarking for Sales leadership."
+      "Building Residential Energy analytics, automation, and AI systems across entity resolution, a Power Apps CRM, executive-facing solar reporting, GenAI workflow agents, and installer performance analytics for Sales leadership."
   },
   {
     range: "May 2025 - Aug 2025",
