@@ -28,7 +28,7 @@ export const profile = {
   name: "Apurva Aggarwal",
   initials: "AA",
   title: "Apurva Aggarwal",
-  eyebrow: "APURVA AGGARWAL // CS & BUSINESS @ MSU",
+  eyebrow: "CS + BUSINESS @ MSU",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
     "I build backend systems, data pipelines, and AI-enabled tools for messy real-world business data. I’m a Resident Assistant at Michigan State University studying computer science and business, with a focus on infrastructure, analytics, and practical software.",
@@ -55,7 +55,7 @@ export const about = {
   title: "I build useful systems where data, software, and operations meet.",
   points: [
     "Computer Science major and Business minor at Michigan State University, graduating in May 2027.",
-    "Currently at Tesla Residential Energy, working across entity resolution, reporting automation, GenAI workflows, benchmarking, and Sales Ops analytics.",
+    "Completed a Data Analyst internship at Tesla Residential Energy, working across entity resolution, a Power Apps CRM, executive-facing analytics, reporting automation, and GenAI workflows.",
     "Previously at EY, supported a $13M enterprise migration through SQL Server validation, UAT, reconciliation, Azure Blob Storage, and Azure DevOps.",
     "Projects focus on data products, applied machine learning, backend systems, and decision-support analytics.",
     "Strongest in ambiguity: turning messy data, manual workflows, and operational questions into reliable software and analytics systems."
@@ -104,10 +104,10 @@ export const updates = [
       "Leading technical work for the International Students Association, including early planning for affiliate systems, website infrastructure, and internal tools."
   },
   {
-    date: "Dec 2025",
-    title: "Accepted Tesla Energy internship",
+    date: "Aug 2026",
+    title: "Completed Tesla Energy internship",
     body:
-      "Accepted a data-focused internship with Tesla Energy, working on operational reporting, automation, data quality, and business-facing analytics systems."
+      "Completed a data-focused internship with Tesla Energy, delivering operational reporting, automation, data-quality workflows, and business-facing analytics systems for Residential Energy."
   },
   {
     date: "March 2025",
@@ -131,7 +131,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/tesla-symbol.jpg",
     logoAlt: "Tesla logo",
     body:
-      "Building Residential Energy analytics, automation, and AI systems across entity resolution, a Power Apps CRM, executive-facing solar reporting, GenAI workflow agents, and installer performance analytics for Sales leadership."
+      "Built Residential Energy analytics, automation, and AI systems spanning entity resolution, migrating a fragile Excel-based sales workflow into a launched Power Apps CRM, executive-facing analytics, and GenAI workflow agents for Sales Ops."
   },
   {
     range: "May 2025 - Aug 2025",
@@ -266,7 +266,7 @@ export const projects: Project[] = [
     title: "ISA Affiliate CRM",
     image: "/images/pic03.jpg",
     summary:
-      "An in-progress CRM-style web app for the ISA to manage affiliates, meeting attendance, and funding requests.",
+      "A working full-stack platform for the ISA to manage affiliates, event registration, attendance, and funding requests.",
     tags: [
       "Full-Stack Development",
       "CRM",
@@ -277,9 +277,9 @@ export const projects: Project[] = [
     problem:
       "ISA needs a more structured way to manage affiliate organizations, track participation, and handle funding request workflows.",
     approach:
-      "Leading technical planning for a lightweight internal system with affiliate-facing views, admin workflows, attendance tracking, and funding request management.",
+      "Leading technical development for a Next.js and Supabase system with public event flows, affiliate-facing views, admin workflows, attendance tracking, and funding request management.",
     result:
-      "Currently in planning and early development, with focus on requirements, hosting constraints, data policies, and long-term maintainability."
+      "Established a working implementation with responsive browser verification, local-only seed/bootstrap separation, and production preflight checks; hosted-service setup and release verification remain."
   },
   {
     number: "05",

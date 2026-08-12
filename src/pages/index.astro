@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import SocialIcon from "../components/SocialIcon.astro";
@@ -24,7 +25,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-card" aria-label="Profile photo">
-        <img src="/images/avatar.jpeg" alt="Portrait of Apurva Aggarwal" />
+        <Image src="/images/avatar.jpeg" alt="Portrait of Apurva Aggarwal" width={120} height={120} priority decoding="async" />
       </div>
       <div class="hero-copy">
         <p class="eyebrow">{profile.eyebrow}</p>
@@ -35,6 +36,9 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
           <a class="button" href={profile.resume} target="_blank" rel="noopener">Resume</a>
         </div>
       </div>
+      <a class="hero-scroll-cue" href="#about" aria-label="Scroll to About">
+        <span aria-hidden="true"></span>
+      </a>
     </section>
 
     <section id="about" class="section split-section">
@@ -43,6 +47,10 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
           eyebrow={about.eyebrow}
           title={about.title}
         />
+        <div class="about-fact" aria-live="polite">
+          <span class="eyebrow">Beyond the work</span>
+          <p data-about-fact>Music content creator</p>
+        </div>
       </div>
       <ul class="about-list">
         {about.points.map((point) => <li>{point}</li>)}
@@ -62,7 +70,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
             <div>
               <div class="experience-heading">
                 {item.logo && (
-                  <img class="experience-logo" src={item.logo} alt={item.logoAlt ?? `${item.org} logo`} />
+                  <Image class="experience-logo" src={item.logo} alt={item.logoAlt ?? `${item.org} logo`} width={36} height={36} loading="lazy" decoding="async" />
                 )}
                 <div>
                   <h3>{item.role}</h3>
@@ -89,7 +97,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
             <div>
               <div class="experience-heading">
                 {item.logo && (
-                  <img class="experience-logo" src={item.logo} alt={item.logoAlt ?? `${item.org} logo`} />
+                  <Image class="experience-logo" src={item.logo} alt={item.logoAlt ?? `${item.org} logo`} width={36} height={36} loading="lazy" decoding="async" />
                 )}
                 <div>
                   <h3>{item.role}</h3>
@@ -112,7 +120,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
       <div class="project-list" data-project-list>
         {projects.map((project) => (
           <article class="project-card" data-project-card tabindex="0" aria-expanded="false" aria-controls={`project-details-${project.number}`}>
-            <img src={project.image} alt={`${project.title} preview`} />
+            <Image src={project.image} alt={`${project.title} preview`} width={180} height={140} loading="lazy" decoding="async" />
             <div class="project-content">
               <div class="project-header">
                 <span class="project-number">{project.number}</span>
@@ -189,9 +197,12 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
           <input type="text" name="_gotcha" />
         </div>
         <div class="form-grid">
+          <label class="sr-only" for="name">Name</label>
           <input type="text" name="name" id="name" placeholder="Name" required />
+          <label class="sr-only" for="email">Email</label>
           <input type="email" name="email" id="email" placeholder="Email" required />
         </div>
+        <label class="sr-only" for="message">Message</label>
         <textarea name="message" id="message" placeholder="Message" rows="6" required></textarea>
         <div class="form-actions">
           <button class="button primary" type="submit">Send Message</button>
@@ -203,7 +214,10 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
   </main>
 
   <footer class="footer">
-    <p>Copyright &copy; 2026 {profile.name}. Built with Astro and deployed on GitHub Pages.</p>
+    <div class="footer-copy">
+      <p>Copyright &copy; 2026 {profile.name}.</p>
+      <p class="footer-note">No dark patterns. Just dark mode.</p>
+    </div>
     <div>
       <a class="icon-link" href={profile.social.github} target="_blank" rel="noopener" aria-label="GitHub">
         <SocialIcon name="github" />
@@ -235,12 +249,17 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
     </section>
   </div>
 
+  <div class="easter-egg" data-easter-egg role="status" aria-live="polite" hidden></div>
+
   <script is:inline src="/assets/js/thankyou.js"></script>
   <script>
     const projectList = document.querySelector("[data-project-list]");
     const projectDetails = Array.from(document.querySelectorAll(".project-card details"));
     const projectCards = Array.from(document.querySelectorAll("[data-project-card]"));
     const progress = document.querySelector("[data-scroll-progress]");
+    const updateHeroScrollCue = () => {
+      document.body.classList.toggle("has-scrolled", window.scrollY > 24);
+    };
 
     const syncProjectGridState = () => {
       projectList?.classList.toggle(
@@ -310,9 +329,11 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
     };
 
     updateScrollProgress();
+    updateHeroScrollCue();
     document.addEventListener("scroll", () => {
       cancelAnimationFrame(progressFrame);
       progressFrame = requestAnimationFrame(updateScrollProgress);
+      updateHeroScrollCue();
     }, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
 
@@ -323,6 +344,31 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
       (element): element is HTMLElement => element instanceof HTMLElement
     );
     let paletteReturnFocus: HTMLElement | null = null;
+
+    const aboutFact = document.querySelector("[data-about-fact]");
+    const aboutFacts = [
+      "Music content creator",
+      "Former cross-country runner",
+      "Formula 1 fan",
+      "Watch collector",
+      "Chess player",
+      "Trained in taekwondo",
+      "Cars enthusiast",
+      "Consistent gym training"
+    ];
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let aboutFactIndex = 0;
+
+    if (aboutFact instanceof HTMLElement && !prefersReducedMotion) {
+      window.setInterval(() => {
+        aboutFact.classList.add("is-changing");
+        window.setTimeout(() => {
+          aboutFactIndex = (aboutFactIndex + 1) % aboutFacts.length;
+          aboutFact.textContent = aboutFacts[aboutFactIndex];
+          aboutFact.classList.remove("is-changing");
+        }, 220);
+      }, 4200);
+    }
 
     const setPaletteOpen = (isOpen: boolean) => {
       if (!(palette instanceof HTMLElement)) return;
@@ -352,5 +398,34 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
 
     paletteClose?.addEventListener("click", () => setPaletteOpen(false));
     paletteLinks.forEach((link) => link.addEventListener("click", () => setPaletteOpen(false)));
+
+    const easterEgg = document.querySelector("[data-easter-egg]");
+    const easterEggMessages: Record<string, string> = {
+      coffee: "Coffee compiled.",
+      f1: "Lights out. Build fast.",
+      watches: "Time well spent.",
+      guitar: "String theory.",
+      chess: "Checkmate.",
+      spartan: "Go Green."
+    };
+    let typedBuffer = "";
+    let easterEggTimeout = 0;
+
+    document.addEventListener("keydown", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || event.key.length !== 1) return;
+      typedBuffer = `${typedBuffer}${event.key.toLowerCase()}`.slice(-12);
+
+      const matchedPhrase = Object.keys(easterEggMessages).find((phrase) => typedBuffer.endsWith(phrase));
+      if (!matchedPhrase || !(easterEgg instanceof HTMLElement)) return;
+
+      window.clearTimeout(easterEggTimeout);
+      easterEgg.textContent = easterEggMessages[matchedPhrase];
+      easterEgg.hidden = false;
+      easterEggTimeout = window.setTimeout(() => {
+        easterEgg.hidden = true;
+      }, 2200);
+      typedBuffer = "";
+    });
   </script>
 </BaseLayout>
