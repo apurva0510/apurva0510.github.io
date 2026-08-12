@@ -42,20 +42,35 @@ import SocialIcon from "./SocialIcon.astro";
   const toggle = document.querySelector("[data-nav-toggle]");
   const menu = document.querySelector("[data-nav-menu]");
   const heroTitle = document.querySelector("#hero-title");
+  let closeTimer = 0;
   const links = Array.from(document.querySelectorAll("[data-nav-link]"));
   const sections = links
     .map((link) => document.querySelector(link.getAttribute("href") || ""))
     .filter((section): section is Element => section instanceof Element);
 
   const setMenuOpen = (isOpen: boolean) => {
-    navbar?.classList.toggle("is-open", isOpen);
-    document.body.classList.toggle("nav-open", isOpen);
+    window.clearTimeout(closeTimer);
     toggle?.setAttribute("aria-expanded", String(isOpen));
     toggle?.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+
+    if (isOpen) {
+      navbar?.classList.remove("is-closing");
+      navbar?.classList.add("is-open");
+      document.body.classList.add("nav-open");
+      return;
+    }
+
+    if (!navbar?.classList.contains("is-open")) return;
+
+    navbar.classList.add("is-closing");
+    closeTimer = window.setTimeout(() => {
+      navbar.classList.remove("is-open", "is-closing");
+      document.body.classList.remove("nav-open");
+    }, 600);
   };
 
   toggle?.addEventListener("click", () => {
-    const isOpen = !(navbar?.classList.contains("is-open") ?? false);
+    const isOpen = navbar?.classList.contains("is-closing") || !(navbar?.classList.contains("is-open") ?? false);
     setMenuOpen(isOpen);
   });
 
