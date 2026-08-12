@@ -28,10 +28,10 @@ export const profile = {
   name: "Apurva Aggarwal",
   initials: "AA",
   title: "Apurva Aggarwal",
-  eyebrow: "Computer Science major + Business minor at Michigan State University",
+  eyebrow: "APURVA AGGARWAL // CS & BUSINESS @ MSU",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
-    "Building data pipelines, analytics systems, and AI-enabled tools for messy real-world business data",
+    "I build backend systems, data pipelines, and AI-enabled tools for messy real-world business data. I’m a Resident Assistant at Michigan State University studying computer science and business, with a focus on infrastructure, analytics, and practical software.",
   availability:
     "Targeting new-grad roles in Data Engineering, Analytics Engineering, AI Engineering, Software Engineering, and ML Engineering.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
@@ -177,7 +177,10 @@ export const experience: Experience[] = [
     logoAlt: "Michigan State University logo",
     body:
       "Support 80+ residents through communication, conflict management, community programming, crisis response, and consistent people-facing ownership."
-  },
+  }
+];
+
+export const education: Experience[] = [
   {
     range: "Aug 2023 - Present",
     role: "B.S. Computer Science, Business Minor",

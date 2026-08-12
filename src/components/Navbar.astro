@@ -11,8 +11,6 @@ import SocialIcon from "./SocialIcon.astro";
     </span>
   </a>
 
-  <a class="mobile-resume-link resume-link" href={profile.resume} target="_blank" rel="noopener">Resume</a>
-
   <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
     <span></span>
     <span></span>
@@ -21,18 +19,20 @@ import SocialIcon from "./SocialIcon.astro";
   <nav class="nav-menu" aria-label="Main navigation" data-nav-menu>
     <div class="nav-links">
       {navLinks.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
+      <a class="resume-link" href={profile.resume} target="_blank" rel="noopener">Resume</a>
     </div>
     <div class="nav-actions">
-      <a class="icon-link" href={profile.social.github} target="_blank" rel="noopener" aria-label="GitHub">
-        <SocialIcon name="github" />
-      </a>
-      <a class="icon-link" href={profile.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
-        <SocialIcon name="linkedin" />
-      </a>
-      <a class="icon-link" href={profile.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
-        <SocialIcon name="instagram" />
-      </a>
-      <a class="resume-link" href={profile.resume} target="_blank" rel="noopener">Resume</a>
+      <div class="social-links">
+        <a class="icon-link" href={profile.social.github} target="_blank" rel="noopener" aria-label="GitHub">
+          <SocialIcon name="github" />
+        </a>
+        <a class="icon-link" href={profile.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+          <SocialIcon name="linkedin" />
+        </a>
+        <a class="icon-link" href={profile.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+          <SocialIcon name="instagram" />
+        </a>
+      </div>
     </div>
   </nav>
 </header>
