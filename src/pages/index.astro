@@ -343,6 +343,11 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
     const paletteFocusable = [paletteClose, ...paletteLinks].filter(
       (element): element is HTMLElement => element instanceof HTMLElement
     );
+    const paletteShortcuts: Record<string, HTMLElement> = Object.fromEntries(
+      paletteLinks
+        .map((link) => [link.querySelector("kbd")?.textContent?.trim().toLowerCase(), link] as const)
+        .filter(([key, link]) => Boolean(key) && link instanceof HTMLElement)
+    );
     let paletteReturnFocus: HTMLElement | null = null;
 
     const aboutFact = document.querySelector("[data-about-fact]");
@@ -390,6 +395,14 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         setPaletteOpen(!(palette instanceof HTMLElement && !palette.hidden));
+        return;
+      }
+      if (palette instanceof HTMLElement && !palette.hidden && !event.metaKey && !event.ctrlKey && !event.altKey) {
+        const shortcut = paletteShortcuts[event.key.toLowerCase()];
+        if (shortcut) {
+          event.preventDefault();
+          shortcut.click();
+        }
       }
       if (event.key === "Escape" && palette instanceof HTMLElement && !palette.hidden) {
         setPaletteOpen(false);
