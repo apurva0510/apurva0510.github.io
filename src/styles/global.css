@@ -200,12 +200,12 @@ h3 { color: var(--text-primary); font-size: 1.05rem; font-weight: 550; line-heig
 .experience-heading .org { margin-top: 0; }
 
 .project-list { display: flex; flex-direction: column; gap: 1rem; }
-.project-card { display: grid; grid-template-columns: 180px 1fr; gap: 1.5rem; padding: 1.25rem; border: 1px solid var(--border-subtle); border-radius: 1rem; background: var(--bg-surface); transition: opacity 360ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 200ms ease-out, background 200ms ease-out; }
+.project-card { display: grid; grid-template-columns: 180px 1fr; align-items: start; gap: 1.5rem; padding: 1.25rem; border: 1px solid var(--border-subtle); border-radius: 1rem; background: var(--bg-surface); overflow: clip; transition: opacity 360ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 200ms ease-out, background 200ms ease-out; }
 .project-card:hover, .project-card:focus-within { border-color: var(--border-hover); background: var(--bg-surface-hover); }
 .project-card:hover .project-content h3, .project-card:focus-within .project-content h3 { color: var(--accent-primary); }
 .project-card > img { width: 180px; height: 140px; border-radius: 0.65rem; object-fit: cover; opacity: 0.86; transition: transform 240ms ease-out, opacity 240ms ease-out; }
 .project-card:hover > img, .project-card:focus-within > img { opacity: 1; transform: scale(1.015); }
-.project-card.is-focused { position: relative; z-index: 1; border-color: var(--accent-primary); }
+.project-card.is-focused { border-color: var(--accent-primary); }
 .project-list:has(.is-focused) .project-card:not(.is-focused) { opacity: 0.68; }
 .project-card:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 4px; }
 .project-content { min-width: 0; }
