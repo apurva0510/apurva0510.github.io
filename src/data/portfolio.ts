@@ -38,7 +38,8 @@ export const profile = {
   social: {
     github: "https://www.github.com/apurva0510",
     linkedin: "https://www.linkedin.com/in/apurva0510/",
-    instagram: "https://instagram.com/apurva_guitar"
+    instagram: "https://instagram.com/apurva_guitar",
+    twitter: "https://twitter.com/apurva_0510"
   }
 };
 
