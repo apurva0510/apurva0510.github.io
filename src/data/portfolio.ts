@@ -264,6 +264,28 @@ export const projects: Project[] = [
   },
   {
     number: "04",
+    title: "SpartaHack 12 Platform",
+    image: "/images/projects/spartahack-platform.png",
+    summary:
+      "A published Next.js and Convex platform for SpartaHack 12, combining public hackathon experience with attendee workflows and organizer operations.",
+    tags: [
+      "Next.js",
+      "React",
+      "Convex",
+      "Authentication",
+      "Event Operations",
+      "Vercel"
+    ],
+    problem:
+      "A student-run hackathon designed for 600+ attendees needs more than a landing page: participants and organizers need reliable registration, scheduling, judging, check-in, communication, and administrative workflows.",
+    approach:
+      "Built an event-aware full-stack platform with public schedule and discovery pages, authentication, applications, document uploads, teams, RSVP and check-in, organizer review, exports, judging, announcements, transactional email, and audit history.",
+    result:
+      "Published a responsive SpartaHack 12 experience with a playful achievement system, browser-based QR check-in, 170 passing automated tests, and deployment configuration that builds each frontend against its matching Convex backend.",
+    links: [{ label: "Website", href: "https://spartahack.com" }]
+  },
+  {
+    number: "05",
     title: "ISA Affiliate CRM",
     image: "/images/pic03.jpg",
     summary:
@@ -283,7 +305,7 @@ export const projects: Project[] = [
       "Established a working implementation with responsive browser verification, local-only seed/bootstrap separation, and production preflight checks; hosted-service setup and release verification remain."
   },
   {
-    number: "05",
+    number: "06",
     title: "Celebrity Face Recognition",
     image: "/images/projects/alexnet.jpg",
     summary:
@@ -304,7 +326,7 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: "https://github.com/apurva0510/celeb-face-rec" }]
   },
   {
-    number: "06",
+    number: "07",
     title: "Intel Sustainability Modeling",
     image: "/images/projects/intel-sustainability.webp",
     summary:
