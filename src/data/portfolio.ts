@@ -286,8 +286,8 @@ export const projects: Project[] = [
   },
   {
     number: "05",
-    title: "ISA Affiliate CRM",
-    image: "/images/pic03.jpg",
+    title: "MSU ISA Platform",
+    image: "/images/projects/msu-isa.png",
     summary:
       "A working full-stack platform for the ISA to manage affiliates, event registration, attendance, and funding requests.",
     tags: [
@@ -302,7 +302,8 @@ export const projects: Project[] = [
     approach:
       "Leading technical development for a Next.js and Supabase system with public event flows, affiliate-facing views, admin workflows, attendance tracking, and funding request management.",
     result:
-      "Established a working implementation with responsive browser verification, local-only seed/bootstrap separation, and production preflight checks; hosted-service setup and release verification remain."
+      "Established a working implementation with responsive browser verification, local-only seed/bootstrap separation, and production preflight checks.",
+    links: [{ label: "Website", href: "https://msuisa.vercel.app" }]
   },
   {
     number: "06",
