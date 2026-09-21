@@ -102,7 +102,7 @@ export const updates = [
     date: "April 2026",
     title: "Started as Director of Technical Affairs for ISA",
     body:
-      "Leading technical work for the International Students Association, including early planning for affiliate systems, website infrastructure, and internal tools."
+      "Leading the build and production release of ISA's website and affiliate operations platform, connecting event registration, attendance, funding, and staff workflows."
   },
   {
     date: "Aug 2026",
@@ -150,7 +150,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/spartahack.jpeg",
     logoAlt: "SpartaHack logo",
     body:
-      "Help lead planning and execution for MSU's 600+ attendee student-run hackathon, coordinating event operations, team execution, logistics, and the overall hacker experience."
+      "Co-lead planning and execution for MSU's 600+ attendee student-run hackathon, overseeing Tech, Marketing, and Logistics while building the live platform for participant and organizer workflows."
   },
   {
     range: "Apr 2026 - Present",
@@ -159,7 +159,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/isa.jpeg",
     logoAlt: "International Students Association logo",
     body:
-      "Lead technical planning for ISA's centralized affiliate platform, website infrastructure, internal tooling, and workflow improvements for student organization operations."
+      "Led ISA's Next.js and Supabase platform from planning through production release, bringing its public website, event registration, affiliate attendance, funding, and staff workflows together."
   },
   {
     range: "Aug 2024 - Dec 2024",
@@ -279,9 +279,9 @@ export const projects: Project[] = [
     problem:
       "A student-run hackathon designed for 600+ attendees needs more than a landing page: participants and organizers need reliable registration, scheduling, judging, check-in, communication, and administrative workflows.",
     approach:
-      "Built an event-aware full-stack platform with public schedule and discovery pages, authentication, applications, document uploads, teams, RSVP and check-in, organizer review, exports, judging, announcements, transactional email, and audit history.",
+      "Independently built an event-aware full-stack platform with public schedule and discovery pages, authentication, applications, document uploads, teams, RSVP and check-in, organizer review, exports, judging, announcements, transactional email, and audit history.",
     result:
-      "Published a responsive SpartaHack 12 experience with a playful achievement system, browser-based QR check-in, 170 passing automated tests, and deployment configuration that builds each frontend against its matching Convex backend.",
+      "Published the live platform that now holds a 750+ person interest list, including roughly 600 contacts carried over from SH11 and at least 150 new organic signups. It also provides the foundation for participant check-in and organizer operations ahead of SH12.",
     links: [{ label: "Website", href: "https://spartahack.com" }]
   },
   {
@@ -289,7 +289,7 @@ export const projects: Project[] = [
     title: "MSU ISA Platform",
     image: "/images/projects/msu-isa.png",
     summary:
-      "A working full-stack platform for the ISA to manage affiliates, event registration, attendance, and funding requests.",
+      "A deployed Next.js and Supabase platform for ISA's public website, event registration, affiliate attendance, and funding workflows.",
     tags: [
       "Full-Stack Development",
       "CRM",
@@ -300,9 +300,9 @@ export const projects: Project[] = [
     problem:
       "ISA needs a more structured way to manage affiliate organizations, track participation, and handle funding request workflows.",
     approach:
-      "Leading technical development for a Next.js and Supabase system with public event flows, affiliate-facing views, admin workflows, attendance tracking, and funding request management.",
+      "Built a Next.js and Supabase system with public event flows, affiliate-facing views, staff access, attendance tracking, funding request management, and protected production deployment.",
     result:
-      "Established a working implementation with responsive browser verification, local-only seed/bootstrap separation, and production preflight checks.",
+      "Deployed a working production release with verified public pages, protected routes, and working login, bringing ISA's event and affiliate operations into one platform.",
     links: [{ label: "Website", href: "https://msuisa.vercel.app" }]
   },
   {
