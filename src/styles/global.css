@@ -167,6 +167,7 @@ h3 { color: var(--text-primary); font-size: 1.05rem; font-weight: 550; line-heig
 .hero-actions, .form-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 .hero-actions .button { width: 156px; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; border: 1px solid var(--border-subtle); border-radius: 999px; background: transparent; color: var(--text-primary); cursor: pointer; font-size: 0.82rem; padding: 0.5rem 0.9rem; transition: all 200ms ease-out; }
+.button:disabled { cursor: wait; opacity: 0.65; }
 .button:hover { border-color: var(--border-hover); background: var(--bg-surface-hover); }
 .button:active { transform: scale(0.98); }
 .button.primary { border-color: var(--accent-primary); background: var(--accent-primary); color: #06111d; font-weight: 600; }
@@ -223,6 +224,20 @@ summary { display: inline-flex; cursor: pointer; color: var(--accent-primary); f
 summary::-webkit-details-marker { display: none; }
 summary::after { content: " +"; }
 details[open] summary::after { content: " −"; }
+.form-status { min-height: 1.4em; margin: 0.9rem 0 0; color: var(--text-secondary); font-size: 0.86rem; transition: color 180ms ease-out, opacity 180ms ease-out; }
+.form-status:empty { opacity: 0; }
+.form-status.is-pending { color: var(--text-secondary); }
+.form-status.is-success { color: var(--accent-primary); }
+.form-status.is-error { color: #ff6b6b; }
+.contact-section #contact-form { transition: opacity 220ms ease-out; }
+.contact-section #contact-form[hidden] { display: none; }
+.contact-section #contact-form.is-complete { opacity: 0; pointer-events: none; }
+.contact-confirmation[hidden] { display: none; }
+.contact-confirmation { display: grid; justify-items: start; gap: 0.9rem; padding: 1.5rem 0; }
+.contact-confirmation p { margin: 0; }
+.contact-confirmation-line { display: flex; align-items: baseline; gap: 0.65rem; }
+.contact-confirmation-mark { color: var(--accent-primary); font-size: 1.4rem; line-height: 1; }
+.contact-confirmation #contact-confirmation-message { color: var(--text-primary); font-size: 1rem; }
 details[open] .case-study { animation: case-study-in 220ms ease-out; }
 .case-study { display: grid; gap: 0.8rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); }
 .case-study article { padding-left: 0.8rem; border-left: 1px solid var(--accent-primary); }
