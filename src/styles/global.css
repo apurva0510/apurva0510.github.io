@@ -139,7 +139,7 @@ body.has-scrolled .hero-scroll-cue { opacity: 0; pointer-events: none; transform
   border-radius: 50%;
   background: var(--bg-surface);
   align-self: start;
-  margin-top: clamp(7rem, 14vh, 11rem);
+  margin-top: calc(clamp(7rem, 14vh, 11rem) + 20px);
 }
 
 .hero-card img {
