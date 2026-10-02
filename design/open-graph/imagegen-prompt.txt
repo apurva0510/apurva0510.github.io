@@ -1,0 +1,11 @@
+Use case: ads-marketing
+Asset type: background artwork for a 1200 by 630 Open Graph link preview for a personal portfolio
+Primary request: create a premium ultra-wide dark abstract background matching a restrained Apple-inspired computer science and business portfolio
+Scene/backdrop: near-black charcoal field with subtle organic grain, faint soft radial illumination, sparse thin blue structural arcs and a few barely visible data-flow nodes
+Style/medium: polished editorial digital artwork, minimal, sophisticated, understated, crisp
+Composition/framing: 1.91:1 landscape; keep the left 44 percent calm and relatively plain for a circular portrait; place restrained structural detail mostly in the right half; no central focal object
+Lighting/mood: dark mode, controlled, quietly technical, confident
+Color palette: #141416 charcoal, #1d1d1f graphite, restrained #2997ff blue accents at low opacity, cool gray
+Materials/textures: subtle fine grain and soft glass-like depth, almost imperceptible
+Constraints: no text, no letters, no logos, no portraits, no icons, no mockup frame, no watermark; must remain readable under white typography
+Avoid: neon cyberpunk, glowing grids, dense particles, circuit-board cliches, code rain, lens flares, purple gradients, generic AI imagery, busy patterns, excessive contrast, vibe-coded aesthetic

@@ -7,6 +7,9 @@ const {
   title = `${profile.name} | Portfolio`,
   description = profile.summary
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const previewImageUrl = new URL("/images/og-preview.png", Astro.site ?? Astro.url.origin);
 ---
 
 <!doctype html>
@@ -20,6 +23,20 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={`${profile.name} | Portfolio`} />
+    <meta property="og:image" content={previewImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Apurva Aggarwal, CS and Business at Michigan State University. Data, Software, Operations." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@apurva_0510" />
+    <meta name="twitter:creator" content="@apurva_0510" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={previewImageUrl} />
+    <meta name="twitter:image:alt" content="Apurva Aggarwal, CS and Business at Michigan State University. Data, Software, Operations." />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="icon" type="image/png" sizes="16x16" href="/logos/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/logos/favicon-32x32.png" />
