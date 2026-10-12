@@ -28,8 +28,10 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
         <Image src="/images/avatar.jpeg" alt="Portrait of Apurva Aggarwal" width={120} height={120} priority decoding="async" />
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">{profile.eyebrow}</p>
-        <h1 id="hero-title">{profile.title}</h1>
+        <div class="hero-heading">
+          <p class="eyebrow">{profile.eyebrow}</p>
+          <h1 id="hero-title">{profile.title}</h1>
+        </div>
         <p class="hero-summary">{profile.summary}</p>
         <div class="hero-actions">
           <a class="button primary" href="#projects">View Projects</a>
