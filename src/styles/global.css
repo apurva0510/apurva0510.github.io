@@ -307,6 +307,7 @@ input:focus, textarea:focus { border-color: var(--accent-primary); outline: 2px 
   .navbar.is-open .nav-links, .navbar.is-open .nav-actions, .nav-links, .nav-actions { flex-direction: column; align-items: center; gap: 1rem; }
   .navbar.is-open .nav-links, .nav-links { gap: 0.95rem; }
   .nav-links a { opacity: 0; width: auto; color: var(--text-primary); font-size: 2rem; font-weight: 650; letter-spacing: -0.03em; text-align: center; transform: translateY(18px); transition: opacity 320ms ease-out, transform 320ms ease-out, color 200ms ease-out; }
+  .nav-links a[aria-current="location"] { color: var(--accent-primary); }
   .navbar.is-open .nav-links .resume-link { color: var(--text-primary) !important; }
   .navbar.is-open .nav-links a { opacity: 1; transform: translateY(0); }
   .navbar.is-open .nav-links a:nth-child(1) { transition-delay: 70ms; }

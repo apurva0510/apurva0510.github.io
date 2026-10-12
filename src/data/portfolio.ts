@@ -31,9 +31,9 @@ export const profile = {
   eyebrow: "CS + BUSINESS @ MSU",
   location: "East Lansing, MI / Palo Alto, CA",
   summary:
-    "I build backend systems, data pipelines, and AI-enabled tools for messy real-world business data. I’m a Resident Assistant at Michigan State University studying computer science and business, with a focus on infrastructure, analytics, and practical software.",
+    "I build data products, full-stack platforms, and applied AI tools that turn messy workflows into useful software.",
   availability:
-    "Targeting new-grad roles in Data Engineering, Analytics Engineering, AI Engineering, Software Engineering, and ML Engineering.",
+    "Targeting new-grad roles in software engineering, data engineering, and AI engineering.",
   resume: "/documents/Apurva Aggarwal - Resume.pdf",
   social: {
     github: "https://www.github.com/apurva0510",
@@ -53,12 +53,12 @@ export const navLinks = [
 
 export const about = {
   eyebrow: "About",
-  title: "I build useful systems where data, software, and operations meet.",
+  title: "I turn complex workflows into software people use.",
   points: [
     "Computer Science major and Business minor at Michigan State University, graduating in May 2027.",
     "Completed a Data Analyst internship at Tesla Residential Energy, working across entity resolution, a Power Apps CRM, executive-facing analytics, reporting automation, and GenAI workflows.",
     "Previously at EY, supported a $13M enterprise migration through SQL Server validation, UAT, reconciliation, Azure Blob Storage, and Azure DevOps.",
-    "Projects focus on data products, applied machine learning, backend systems, and decision-support analytics.",
+    "Outside internships, I build data products and full-stack platforms, including Argus, SpartaHack's event system, and MSU ISA's operations platform.",
     "Strongest in ambiguity: turning messy data, manual workflows, and operational questions into reliable software and analytics systems."
   ]
 };
@@ -91,39 +91,6 @@ export const highlights = [
   }
 ];
 
-export const updates = [
-  {
-    date: "May 2026",
-    title: "Starting as Co-Director for SpartaHack",
-    body:
-      "Stepping into a leadership role supporting one of MSU's major student-run hackathon organizations, with responsibility across planning, execution, team coordination, and event operations."
-  },
-  {
-    date: "April 2026",
-    title: "Started as Director of Technical Affairs for ISA",
-    body:
-      "Leading the build and production release of ISA's website and affiliate operations platform, connecting event registration, attendance, funding, and staff workflows."
-  },
-  {
-    date: "Aug 2026",
-    title: "Completed Tesla Energy internship",
-    body:
-      "Completed a data-focused internship with Tesla Energy, delivering operational reporting, automation, data-quality workflows, and business-facing analytics systems for Residential Energy."
-  },
-  {
-    date: "March 2025",
-    title: "Accepted EY Technology Consulting internship",
-    body:
-      "Accepted a Digital Engineering internship with EY, focused on enterprise systems, data migration, validation, testing, and consulting delivery."
-  },
-  {
-    date: "Oct 2024",
-    title: "FarmX won Best Sustainability Track at MHacks",
-    body:
-      "Built a machine-learning prototype for agriculture decision support, focused on practical sustainability and rapid execution under hackathon constraints."
-  }
-];
-
 export const experience: Experience[] = [
   {
     range: "Jan 2026 - Aug 2026",
@@ -132,7 +99,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/tesla-symbol.jpg",
     logoAlt: "Tesla logo",
     body:
-      "Built Residential Energy analytics, automation, and AI systems spanning entity resolution, migrating a fragile Excel-based sales workflow into a launched Power Apps CRM, executive-facing analytics, and GenAI workflow agents for Sales Ops."
+      "Built an entity-resolution pipeline for a 35K-account installer network and replaced manual Excel workflows with a Power Apps CRM for 70+ Account Managers and Sales Ops users. Developed GenAI tools supporting 100+ users across 20 workflows and executive-facing solar analytics."
   },
   {
     range: "May 2025 - Aug 2025",
@@ -168,7 +135,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/global-career-accelerator.jpeg",
     logoAlt: "Global Career Accelerator logo",
     body:
-      "Analyzed 30M+ engagement records, evaluated Grammy.com KPIs, designed 95% confidence A/B tests, built SQL/Tableau dashboards, and modeled regional energy readiness for Intel-sponsored data center analysis."
+      "Analyzed 30M+ engagement records, evaluated Grammy.com KPIs, designed A/B experiments, and evaluated engagement differences at 95% confidence. Built SQL/Tableau dashboards and modeled regional energy readiness for Intel-sponsored data center analysis."
   },
   {
     range: "Aug 2024 - Present",
@@ -177,7 +144,7 @@ export const experience: Experience[] = [
     logo: "/logos/organizations/msu.webp",
     logoAlt: "Michigan State University logo",
     body:
-      "Support 80+ residents through communication, conflict management, community programming, crisis response, and consistent people-facing ownership."
+      "Support 80+ residents through conflict management, community programming, crisis response, and day-to-day community support."
   }
 ];
 
@@ -199,7 +166,7 @@ export const projects: Project[] = [
     title: "Argus",
     image: "/images/projects/argus-dashboard.png",
     summary:
-      "A Streamlit/PostgreSQL market intelligence platform combining explainable opportunity scoring, peer-relative valuation, catalyst analysis, and investment thesis tracking.",
+      "A Streamlit/PostgreSQL market intelligence platform for company scoring, valuation, catalysts, and investment thesis tracking. Its AI companion, Argus Friend Brief, turns company research into plain-language, evidence-linked briefs using local Gemma.",
     tags: [
       "Python",
       "Streamlit",
@@ -211,11 +178,13 @@ export const projects: Project[] = [
     problem:
       "AI infrastructure research was scattered across market data, SEC filings, news, catalysts, watchlists, and investment notes, making it difficult to evaluate companies and themes consistently.",
     approach:
-      "Built scheduled ingestion pipelines and a 33-table PostgreSQL data model supporting company research, peer-relative valuation, bull/bear thesis tracking, catalyst impact analysis, thematic indices, and historically tested opportunity scores.",
+      "Built scheduled ingestion pipelines and a 33-table PostgreSQL data model for company research, valuation, thesis tracking, and catalyst analysis. The AI companion runs Gemma locally through Ollama, validates citation IDs against a bounded evidence catalog, and rejects invalid responses after one repair attempt.",
     result:
-      "Created a portfolio-grade decision-support platform tracking 53 companies, with daily user feedback, explainable scoring, 5D/20D/60D signal backtests, and analysis of earnings and SEC-filing reactions.",
+      "Created a research platform tracking 53 companies, used daily by my dad and refined through his feedback. It combines explainable scoring and 5-, 20-, and 60-day backtests with plain-language research briefs, supported by behavioral tests and PostgreSQL-backed CI.",
     links: [
-      { label: "GitHub", href: "https://github.com/apurva0510/argus" }
+      { label: "GitHub", href: "https://github.com/apurva0510/argus" },
+      { label: "AI Companion Code", href: "https://github.com/apurva0510/argus-friend-brief" },
+      { label: "Sample AI Briefs", href: "https://argus-friend-brief.streamlit.app/" }
     ]
   },
   {
@@ -264,24 +233,23 @@ export const projects: Project[] = [
   },
   {
     number: "04",
-    title: "SpartaHack 12 Platform",
+    title: "SpartaHack Platform",
     image: "/images/projects/spartahack-platform.png",
     summary:
-      "A published Next.js and Convex platform for SpartaHack 12, combining public hackathon experience with attendee workflows and organizer operations.",
+      "A Next.js and Convex platform for SpartaHack's student-run events, connecting participant workflows with organizer operations.",
     tags: [
       "Next.js",
-      "React",
+      "TypeScript",
       "Convex",
-      "Authentication",
-      "Event Operations",
-      "Vercel"
+      "Vercel",
+      "CI/CD"
     ],
     problem:
       "A student-run hackathon designed for 600+ attendees needs more than a landing page: participants and organizers need reliable registration, scheduling, judging, check-in, communication, and administrative workflows.",
     approach:
-      "Independently built an event-aware full-stack platform with public schedule and discovery pages, authentication, applications, document uploads, teams, RSVP and check-in, organizer review, exports, judging, announcements, transactional email, and audit history.",
+      "Independently built participant applications, teams, project submissions, check-in, judging, and organizer workflows. Added backend event isolation, department-scoped staff permissions, and durable communication jobs with retries and duplicate-safe recovery.",
     result:
-      "Published the live platform that now holds a 750+ person interest list, including roughly 600 contacts carried over from SH11 and at least 150 new organic signups. It also provides the foundation for participant check-in and organizer operations ahead of SH12.",
+      "Published the live platform for participant registration, check-in, and organizer operations ahead of SpartaHack 12.",
     links: [{ label: "Website", href: "https://spartahack.com" }]
   },
   {
@@ -289,21 +257,21 @@ export const projects: Project[] = [
     title: "MSU ISA Platform",
     image: "/images/projects/msu-isa.png",
     summary:
-      "A deployed Next.js and Supabase platform for ISA's public website, event registration, affiliate attendance, and funding workflows.",
+      "A production Next.js and Supabase platform for public events, registration, affiliate operations, attendance, funding requests, and staff administration.",
     tags: [
-      "Full-Stack Development",
-      "CRM",
-      "Web Apps",
-      "Product Planning",
-      "Student Organizations"
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "CI/CD"
     ],
     problem:
       "ISA needs a more structured way to manage affiliate organizations, track participation, and handle funding request workflows.",
     approach:
-      "Built a Next.js and Supabase system with public event flows, affiliate-facing views, staff access, attendance tracking, funding request management, and protected production deployment.",
+      "Built public and staff workflows with server-enforced permissions, organization isolation, conflict-of-interest rules, and audit records. Tested duplicate-safe operations and automated releases and PostgreSQL migrations through CI/CD.",
     result:
-      "Deployed a working production release with verified public pages, protected routes, and working login, bringing ISA's event and affiliate operations into one platform.",
-    links: [{ label: "Website", href: "https://msuisa.vercel.app" }]
+      "Launched msuisa.org, bringing ISA's event registration, affiliate attendance, funding requests, and staff administration into one platform with protected access and traceable operations.",
+    links: [{ label: "Website", href: "https://msuisa.org" }]
   },
   {
     number: "06",
@@ -323,28 +291,8 @@ export const projects: Project[] = [
     approach:
       "Fine-tuned an AlexNet-based model using transfer learning, data augmentation, dropout regularization, k-fold cross-validation, and confusion-matrix error analysis.",
     result:
-      "Reached 57.35% accuracy on a high intra-class similarity dataset while building a clearer understanding of model validation and error inspection.",
+      "Achieved 57.35% classification accuracy across 17 celebrity classes, using confusion-matrix analysis to inspect errors.",
     links: [{ label: "GitHub", href: "https://github.com/apurva0510/celeb-face-rec" }]
-  },
-  {
-    number: "07",
-    title: "Intel Sustainability Modeling",
-    image: "/images/projects/intel-sustainability.webp",
-    summary:
-      "A sustainability analytics project evaluating regional energy readiness for potential data center expansion.",
-    tags: [
-      "Tableau",
-      "Data Analytics",
-      "Sustainability",
-      "Energy Modeling",
-      "Data Visualization"
-    ],
-    problem:
-      "Data center expansion creates significant energy demand, so site-selection decisions need to account for regional capacity, renewable mix, and long-term grid readiness.",
-    approach:
-      "Modeled regional energy availability and renewable capacity, then built Tableau visualizations to compare five U.S. regions under sustainability constraints.",
-    result:
-      "Ranked U.S. regions for data center readiness and translated energy data into scenario-driven infrastructure recommendations."
   }
 ];
 
@@ -379,23 +327,28 @@ export const skillGroups = [
     title: "AI + ML",
     skills: [
       "GenAI Workflows",
+      "MCP",
+      "Local LLMs",
       "scikit-learn",
       "PyTorch",
       "Random Forest",
       "Transfer Learning",
       "Computer Vision",
-      "Model Evaluation",
-      "Feature Engineering"
+      "Model Evaluation"
     ]
   },
   {
     title: "Software + Cloud",
     skills: [
-      "JavaScript",
+      "TypeScript / JavaScript",
+      "Next.js",
+      "React",
+      "Supabase",
+      "Convex",
+      "Server-side Authorization",
       "C/C++",
       "Azure",
       "Docker",
-      "Docker Compose",
       "REST APIs",
       "Flask",
       "CI/CD",

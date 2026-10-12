@@ -57,6 +57,7 @@ import SocialIcon from "./SocialIcon.astro";
     toggle?.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
 
     if (isOpen) {
+      setActiveLink();
       navbar?.classList.remove("is-closing");
       navbar?.classList.add("is-open");
       document.body.classList.add("nav-open");
@@ -100,7 +101,11 @@ import SocialIcon from "./SocialIcon.astro";
     });
 
     links.forEach((link) => {
-      link.toggleAttribute("aria-current", link.getAttribute("href") === `#${current}`);
+      if (link.getAttribute("href") === `#${current}`) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
     });
   };
 
