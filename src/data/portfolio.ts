@@ -114,7 +114,7 @@ export const experience: Experience[] = [
     range: "May 2026 - Present",
     role: "Co-Director",
     org: "SpartaHack",
-    logo: "/logos/organizations/spartahack.jpeg",
+    logo: "/logos/organizations/spartahack.png",
     logoAlt: "SpartaHack logo",
     body:
       "Co-lead planning and execution for MSU's 600+ attendee student-run hackathon, overseeing Tech, Marketing, and Logistics while building the live platform for participant and organizer workflows."
