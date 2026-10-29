@@ -1,0 +1,21 @@
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+
+<script>
+  const progress = document.querySelector<HTMLElement>("[data-scroll-progress]");
+  let frame = 0;
+  const update = () => {
+    if (!progress) return;
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const fraction = height > 0 ? Math.min(1, Math.max(0, window.scrollY / height)) : 0;
+    progress.style.transform = `scaleX(${fraction})`;
+  };
+  const scheduleUpdate = () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(update);
+  };
+  update();
+  document.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("resize", scheduleUpdate);
+  window.addEventListener("pageshow", scheduleUpdate);
+  new ResizeObserver(scheduleUpdate).observe(document.body);
+</script>

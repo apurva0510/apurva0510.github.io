@@ -61,7 +61,9 @@ p { color: var(--text-secondary); }
   position: sticky;
   top: 0;
   z-index: 50;
-  width: min(var(--page-width), calc(100% - 40px));
+  --nav-content-width: var(--page-width);
+  width: 100%;
+  padding-inline: max(20px, calc((100% - var(--nav-content-width)) / 2));
   min-height: var(--nav-height);
   margin: 0 auto;
   display: flex;
@@ -71,10 +73,9 @@ p { color: var(--text-secondary); }
   border-bottom: 1px solid var(--border-subtle);
   background: rgba(22, 22, 23, 0.94);
   backdrop-filter: blur(16px);
-  position: sticky;
 }
 
-.brand { display: inline-flex; align-items: center; gap: 0.65rem; font-weight: 650; }
+.brand { white-space: nowrap; flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.65rem; font-weight: 650; }
 .brand-logo { color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: -0.08em; }
 .brand-name-wrap { display: block; }
 .brand-text { color: var(--text-secondary); font-size: 0.82rem; }
@@ -298,7 +299,8 @@ input:focus, textarea:focus { border-color: var(--accent-primary); outline: 2px 
 @keyframes easter-egg-in { from { opacity: 0; transform: translate(-50%, 4px); } to { opacity: 1; transform: translate(-50%, 0); } }
 
 @media (max-width: 900px) {
-  .navbar, .hero, .section, .footer { width: min(100% - 32px, var(--page-width)); }
+  .navbar { padding-inline: 16px; }
+  .hero, .section, .footer { width: min(100% - 32px, var(--page-width)); }
   .nav-toggle { position: relative; display: inline-grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--border-subtle); border-radius: 50%; background: transparent; cursor: pointer; }
   .nav-toggle span { position: absolute; width: 15px; height: 1px; background: var(--text-primary); transition: transform 200ms ease-out; }
   .nav-toggle span:first-child { transform: translateY(-3px); }
@@ -356,3 +358,7 @@ input:focus, textarea:focus { border-color: var(--accent-primary); outline: 2px 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+.case-study-link { display: inline-flex; gap: .4rem; margin: 0; color: var(--accent-primary); }
+.case-study-link + details { margin-top: .35rem; }
+.case-study-link:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 4px; }

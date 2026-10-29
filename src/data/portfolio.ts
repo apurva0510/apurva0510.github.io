@@ -5,6 +5,7 @@ type ProjectLink = {
 
 type Project = {
   number: string;
+  slug: string;
   title: string;
   image: string;
   summary: string;
@@ -163,6 +164,7 @@ export const education: Experience[] = [
 export const projects: Project[] = [
   {
     number: "01",
+    slug: "argus",
     title: "Argus",
     image: "/images/projects/argus-dashboard.png",
     summary:
@@ -189,6 +191,7 @@ export const projects: Project[] = [
   },
   {
     number: "02",
+    slug: "farmx",
     title: "FarmX - Sustainable Agriculture",
     image: "/images/projects/farmx.png",
     summary:
@@ -211,6 +214,7 @@ export const projects: Project[] = [
   },
   {
     number: "03",
+    slug: "micro-foods-market",
     title: "Micro Foods Market",
     image: "/images/projects/micro-foods-architecture.svg",
     summary:
@@ -233,6 +237,7 @@ export const projects: Project[] = [
   },
   {
     number: "04",
+    slug: "spartahack-platform",
     title: "SpartaHack Platform",
     image: "/images/projects/spartahack-platform.png",
     summary:
@@ -254,6 +259,7 @@ export const projects: Project[] = [
   },
   {
     number: "05",
+    slug: "msu-isa-platform",
     title: "MSU ISA Platform",
     image: "/images/projects/msu-isa.png",
     summary:
@@ -275,6 +281,7 @@ export const projects: Project[] = [
   },
   {
     number: "06",
+    slug: "celebrity-face-recognition",
     title: "Celebrity Face Recognition",
     image: "/images/projects/alexnet.jpg",
     summary:

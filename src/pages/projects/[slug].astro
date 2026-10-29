@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects, profile } from "../../data/portfolio";
+import { caseStudies } from "../../data/case-studies";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+const { project } = Astro.props;
+const study = caseStudies[project.slug];
+const headline = study.headline;
+const subtitle = study.subtitle;
+const text = [...study.opening, ...study.chapters.flatMap((chapter) => chapter.paragraphs)].join(" ");
+const readingMinutes = Math.max(1, Math.ceil(text.split(/\s+/).length / 220));
+const related = projects.filter((item) => item.slug !== project.slug).slice(0, 3);
+const url = new URL(`/projects/${project.slug}/`, Astro.site).href;
+const structuredData = [{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline,
+  description: subtitle,
+  url,
+  mainEntityOfPage: url,
+  image: new URL(project.image, Astro.site).href,
+  author: { "@type": "Person", "@id": "https://apaggarwal.com/#person", name: profile.name, url: "https://apaggarwal.com/" }
+}];
+---
+<BaseLayout title={`${headline} | ${profile.name}`} description={subtitle} structuredData={structuredData}>
+  <main class="journal-page">
+    <article>
+      <header class="article-header">
+        <a class="article-back" href="/#projects">← Projects & writing</a>
+        <p class="article-kicker">Behind the build · {project.title}</p>
+        <h1>{headline}</h1>
+        <p class="article-subtitle">{subtitle}</p>
+        <div class="article-author">
+          <a href="/#about" tabindex="-1" aria-hidden="true"><Image src="/images/avatar.jpeg" alt="" width={44} height={44} /></a>
+          <div><a class="author-name" href="/#about">{profile.name}</a><p>{readingMinutes} min read <span aria-hidden="true">·</span> {study.role}</p></div>
+        </div>
+      </header>
+      <figure class="article-cover">
+        <Image src={project.image} alt={`${project.title} project preview`} width={1200} height={750} loading="eager" decoding="async" />
+        <figcaption>{project.title} · {project.tags.slice(0, 3).join(" / ")}</figcaption>
+      </figure>
+      <div class="article-body">
+        {study.opening.map((paragraph) => <p>{paragraph}</p>)}
+        {study.chapters.map((chapter) => (
+          <section><h2>{chapter.title}</h2>{chapter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</section>
+        ))}
+        <div class="article-end" aria-hidden="true">• &nbsp; • &nbsp; •</div>
+        <section class="article-resources" aria-labelledby="resources-title"><h2 id="resources-title">Explore {project.title}</h2><ul>{(project.links ?? []).map((link) => <li><a href={link.href} target="_blank" rel="noopener">{link.label} ↗</a></li>)}</ul></section>
+        <div class="article-topics"><ul aria-label="Topics">{project.tags.map((tag) => <li>{tag}</li>)}</ul></div>
+        <aside class="author-note" aria-label="About the author"><Image src="/images/avatar.jpeg" alt="" width={56} height={56} /><div><p class="author-note-name">Written by <a href="/#about">{profile.name}</a></p><p>I build data products, full-stack platforms, and applied AI tools. Computer Science + Business at Michigan State.</p><a href="/#contact">Get in touch →</a></div></aside>
+      </div>
+    </article>
+    <section class="more-stories" aria-labelledby="more-stories-title"><h2 id="more-stories-title">More behind the build</h2><div>{related.map((item) => <a class="story-card" href={`/projects/${item.slug}/`}><Image src={item.image} alt="" width={280} height={175} loading="lazy" /><p>{item.title}</p><h3>{caseStudies[item.slug].headline}</h3><span>Read the story →</span></a>)}</div></section>
+    <footer class="journal-footer"><a href="/#projects">← Back to the portfolio</a><span>© 2026 {profile.name}</span></footer>
+  </main>
+</BaseLayout>
+<style>
+  .journal-page { --reading-width: 680px; overflow: visible; padding: 4.5rem 0 2rem; }
+  .article-header { width: min(820px, calc(100% - 48px)); margin: 0 auto; }
+  .article-back { display: inline-block; margin-bottom: 3rem; color: var(--text-secondary); font-size: .85rem; }
+  .article-kicker { color: var(--accent-primary); font-size: .78rem; font-weight: 550; letter-spacing: .04em; margin-bottom: 1.15rem; }
+  h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.12; letter-spacing: -.045em; font-weight: 720; margin-bottom: 1.35rem; text-wrap: balance; }
+  .article-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.35rem); line-height: 1.55; color: #aaaab1; margin-bottom: 2rem; }
+  .article-author { display: flex; align-items: center; gap: .8rem; margin-bottom: 2.5rem; }
+  .article-author img, .author-note img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .author-name { font-size: .9rem; font-weight: 550; }
+  .article-author p { font-size: .78rem; margin: .2rem 0 0; line-height: 1.6; }
+  .article-author p span { padding: 0 .3rem; }
+  .article-cover { width: min(1000px, calc(100% - 48px)); margin: 0 auto 3.5rem; }
+  .article-cover img { width: 100%; height: auto; max-height: 640px; object-fit: contain; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 4px; }
+  figcaption { color: var(--text-secondary); font-size: .75rem; text-align: center; margin-top: .85rem; }
+  .article-body { width: min(var(--reading-width), calc(100% - 48px)); margin: 0 auto; font-family: var(--font-sans); font-size: 1.1rem; line-height: 1.85; letter-spacing: -.008em; }
+  .article-body p { color: #d3d3d7; margin-bottom: 1.6rem; }
+  .article-body h2 { font-family: var(--font-sans); font-size: 1.65rem; line-height: 1.3; letter-spacing: -.03em; margin: 3rem 0 1.2rem; text-wrap: pretty; }
+  .article-end { text-align: center; margin: 2.8rem 0; color: var(--text-secondary); font-family: var(--font-sans); letter-spacing: .8rem; }
+  .article-resources { font-family: var(--font-sans); font-size: .95rem; }
+  .article-resources h2 { font-size: 1.15rem; }
+  .article-resources ul { list-style: none; padding: 0; }
+  .article-resources li { margin: .5rem 0; }
+  .article-resources a, .author-note a { color: var(--accent-primary); }
+  .article-topics ul { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 2.5rem 0; }
+  .article-topics li { font: .75rem var(--font-sans); background: var(--bg-surface-hover); padding: .55rem .8rem; border-radius: 100px; color: #b7b7be; }
+  .author-note { border-top: 1px solid var(--border-subtle); padding: 2rem 0; display: flex; align-items: flex-start; gap: 1rem; font: .88rem/1.65 var(--font-sans); }
+  .author-note p { color: var(--text-secondary); margin-bottom: .5rem; }
+  .author-note .author-note-name { color: var(--text-primary); font-size: 1rem; font-weight: 600; }
+  .more-stories, .journal-footer { width: min(1000px, calc(100% - 48px)); margin: 4rem auto 0; border-top: 1px solid var(--border-subtle); padding-top: 2rem; }
+  .more-stories > h2 { font-size: 1.3rem; letter-spacing: -.02em; margin-bottom: 1.5rem; }
+  .more-stories > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem; }
+  .story-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: var(--bg-surface); }
+  .story-card p { font-size: .75rem; margin: .8rem 0 .4rem; }
+  .story-card h3 { font-size: 1rem; line-height: 1.4; letter-spacing: -.015em; margin-bottom: .75rem; }
+  .story-card span { color: var(--text-secondary); font-size: .75rem; }
+  .journal-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--text-secondary); font-size: .78rem; }
+  .journal-page a:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 4px; }
+  .journal-page a:hover { color: var(--accent-primary); }
+  @media (max-width: 600px) { .journal-page { padding-top: 2.5rem; } .article-back { margin-bottom: 2rem; } .article-body { font-size: 1.1rem; line-height: 1.8; } .article-body h2 { font-size: 1.4rem; } .article-cover { width: 100%; margin-bottom: 2.5rem; } .article-cover img { border-radius: 0; } .more-stories > div { grid-template-columns: 1fr; gap: 2rem; } .story-card img { height: 200px; } }
+</style>

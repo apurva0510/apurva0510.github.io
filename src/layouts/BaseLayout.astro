@@ -1,15 +1,30 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+import ScrollProgress from "../components/ScrollProgress.astro";
+import CommandPalette from "../components/CommandPalette.astro";
 import { profile } from "../data/portfolio";
 
 const {
-  title = `${profile.name} | Portfolio`,
-  description = profile.summary
+  title = `${profile.name} | Software, Data & AI | Michigan State`,
+  description = "Apurva Aggarwal builds data products, full-stack platforms, and applied AI tools. Michigan State CS student, former Tesla and EY intern.",
+  structuredData = []
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const previewImageUrl = new URL("/images/og-preview.png", Astro.site ?? Astro.url.origin);
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://apaggarwal.com/#person",
+  name: profile.name,
+  url: "https://apaggarwal.com/",
+  image: "https://apaggarwal.com/images/avatar.jpeg",
+  description: "Michigan State University computer science student building data products, full-stack platforms, and applied AI tools.",
+  affiliation: { "@type": "CollegeOrUniversity", name: "Michigan State University" },
+  sameAs: [profile.social.linkedin, profile.social.github, "https://dev.to/apurva0510"]
+};
+const schemas = [person, ...structuredData];
 ---
 
 <!doctype html>
@@ -50,10 +65,15 @@ const previewImageUrl = new URL("/images/og-preview.png", Astro.site ?? Astro.ur
       gtag("js", new Date());
       gtag("config", "G-613YNELN4M");
     </script>
+    {schemas.map((schema) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
+    ))}
     <title>{title}</title>
   </head>
   <body>
+    <ScrollProgress />
     <Navbar />
     <slot />
+    <CommandPalette />
   </body>
 </html>

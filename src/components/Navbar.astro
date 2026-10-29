@@ -4,7 +4,7 @@ import SocialIcon from "./SocialIcon.astro";
 ---
 
 <header class="navbar" data-navbar>
-  <a class="brand" href="#top" aria-label={`${profile.name} home`}>
+  <a class="brand" href="/#top" aria-label={`${profile.name} home`}>
     <span class="brand-logo" aria-hidden="true">ap.</span>
     <span class="brand-name-wrap" aria-hidden="true">
       <span class="brand-text">{profile.name}</span>
@@ -18,7 +18,7 @@ import SocialIcon from "./SocialIcon.astro";
 
   <nav class="nav-menu" aria-label="Main navigation" data-nav-menu>
     <div class="nav-links">
-      {navLinks.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
+      {navLinks.map((link) => <a href={Astro.url.pathname === "/" ? link.href : `/${link.href}`} data-nav-link>{link.label}</a>)}
       <a class="resume-link" href={profile.resume} target="_blank" rel="noopener">Resume</a>
     </div>
     <div class="nav-actions">
@@ -48,7 +48,7 @@ import SocialIcon from "./SocialIcon.astro";
   let closeTimer = 0;
   const links = Array.from(document.querySelectorAll("[data-nav-link]"));
   const sections = links
-    .map((link) => document.querySelector(link.getAttribute("href") || ""))
+    .map((link) => document.querySelector((link.getAttribute("href") || "").startsWith("#") ? link.getAttribute("href")! : "[data-no-section]"))
     .filter((section): section is Element => section instanceof Element);
 
   const setMenuOpen = (isOpen: boolean) => {

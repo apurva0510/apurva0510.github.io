@@ -1,0 +1,74 @@
+---
+import { profile } from "../data/portfolio";
+---
+
+  <div class="command-palette" data-command-palette hidden>
+    <button class="command-backdrop" type="button" aria-label="Close command palette" data-command-close></button>
+    <section class="command-dialog" role="dialog" aria-modal="true" aria-labelledby="command-title">
+      <div class="command-heading">
+        <h2 id="command-title">Quick navigation</h2>
+        <kbd>ESC</kbd>
+      </div>
+      <nav class="command-list" aria-label="Quick navigation links">
+        <a href="/#projects" data-command-link><span>Projects</span><kbd>P</kbd></a>
+        <a href="/#experience" data-command-link><span>Experience</span><kbd>W</kbd></a>
+        <a href="/#skills" data-command-link><span>Skills</span><kbd>S</kbd></a>
+        <a href="/#contact" data-command-link><span>Contact</span><kbd>C</kbd></a>
+        <a href={profile.resume} target="_blank" rel="noopener" data-command-link><span>Resume</span><kbd>R</kbd></a>
+        <a href={profile.social.github} target="_blank" rel="noopener" data-command-link><span>GitHub</span><kbd>G</kbd></a>
+      </nav>
+    </section>
+  </div>
+
+<script>
+    const palette = document.querySelector("[data-command-palette]");
+    const paletteClose = document.querySelector("[data-command-close]");
+    const paletteLinks = Array.from(document.querySelectorAll("[data-command-link]"));
+    const paletteFocusable = [paletteClose, ...paletteLinks].filter(
+      (element): element is HTMLElement => element instanceof HTMLElement
+    );
+    const paletteShortcuts: Record<string, HTMLElement> = Object.fromEntries(
+      paletteLinks
+        .map((link) => [link.querySelector("kbd")?.textContent?.trim().toLowerCase(), link] as const)
+        .filter(([key, link]) => Boolean(key) && link instanceof HTMLElement)
+    );
+    let paletteReturnFocus: HTMLElement | null = null;
+
+    const setPaletteOpen = (isOpen: boolean) => {
+      if (!(palette instanceof HTMLElement)) return;
+      if (isOpen) paletteReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      palette.hidden = !isOpen;
+      document.body.classList.toggle("command-open", isOpen);
+      if (isOpen && paletteFocusable[0]) paletteFocusable[0].focus();
+      if (!isOpen) paletteReturnFocus?.focus();
+    };
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Tab" && palette instanceof HTMLElement && !palette.hidden) {
+        event.preventDefault();
+        const currentIndex = paletteFocusable.indexOf(document.activeElement as HTMLElement);
+        const nextIndex = (currentIndex + (event.shiftKey ? -1 : 1) + paletteFocusable.length) % paletteFocusable.length;
+        paletteFocusable[nextIndex]?.focus();
+        return;
+      }
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setPaletteOpen(!(palette instanceof HTMLElement && !palette.hidden));
+        return;
+      }
+      if (palette instanceof HTMLElement && !palette.hidden && !event.metaKey && !event.ctrlKey && !event.altKey) {
+        const shortcut = paletteShortcuts[event.key.toLowerCase()];
+        if (shortcut) {
+          event.preventDefault();
+          shortcut.click();
+        }
+      }
+      if (event.key === "Escape" && palette instanceof HTMLElement && !palette.hidden) {
+        setPaletteOpen(false);
+      }
+    });
+
+    paletteClose?.addEventListener("click", () => setPaletteOpen(false));
+    paletteLinks.forEach((link) => link.addEventListener("click", () => setPaletteOpen(false)));
+
+</script>
