@@ -191,6 +191,50 @@ export const projects: Project[] = [
   },
   {
     number: "02",
+    slug: "spartahack-platform",
+    title: "SpartaHack Platform",
+    image: "/images/projects/spartahack-platform-2026-10-30.jpg",
+    summary:
+      "A Next.js and Convex platform for SpartaHack's student-run events, connecting participant workflows with organizer operations.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Convex",
+      "Vercel",
+      "CI/CD"
+    ],
+    problem:
+      "A student-run hackathon designed for 600+ attendees needs more than a landing page: participants and organizers need reliable registration, scheduling, judging, check-in, communication, and administrative workflows.",
+    approach:
+      "Independently built participant applications, teams, project submissions, check-in, judging, and organizer workflows. Added backend event isolation, department-scoped staff permissions, and durable communication jobs with retries and duplicate-safe recovery.",
+    result:
+      "Published the live platform for participant registration, check-in, and organizer operations ahead of SpartaHack 12.",
+    links: [{ label: "Website", href: "https://spartahack.com" }]
+  },
+  {
+    number: "03",
+    slug: "msu-isa-platform",
+    title: "MSU ISA Platform",
+    image: "/images/projects/msu-isa-2026-10-30.jpg",
+    summary:
+      "A production Next.js and Supabase platform for public events, registration, affiliate operations, attendance, funding requests, and staff administration.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "CI/CD"
+    ],
+    problem:
+      "ISA needs a more structured way to manage affiliate organizations, track participation, and handle funding request workflows.",
+    approach:
+      "Built public and staff workflows with server-enforced permissions, organization isolation, conflict-of-interest rules, and audit records. Tested duplicate-safe operations and automated releases and PostgreSQL migrations through CI/CD.",
+    result:
+      "Launched msuisa.org, bringing ISA's event registration, affiliate attendance, funding requests, and staff administration into one platform with protected access and traceable operations.",
+    links: [{ label: "Website", href: "https://msuisa.org" }]
+  },
+  {
+    number: "04",
     slug: "farmx",
     title: "FarmX - Sustainable Agriculture",
     image: "/images/projects/farmx.png",
@@ -213,7 +257,7 @@ export const projects: Project[] = [
     links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
   },
   {
-    number: "03",
+    number: "05",
     slug: "micro-foods-market",
     title: "Micro Foods Market",
     image: "/images/projects/micro-foods-architecture.svg",
@@ -234,50 +278,6 @@ export const projects: Project[] = [
     result:
       "Created a cloud-deployment-ready backend foundation that strengthened service orchestration, authentication, and reusable architecture patterns.",
     links: [{ label: "GitHub", href: "https://github.com/apurva0510/MicroFoodMarket" }]
-  },
-  {
-    number: "04",
-    slug: "spartahack-platform",
-    title: "SpartaHack Platform",
-    image: "/images/projects/spartahack-platform.png",
-    summary:
-      "A Next.js and Convex platform for SpartaHack's student-run events, connecting participant workflows with organizer operations.",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Convex",
-      "Vercel",
-      "CI/CD"
-    ],
-    problem:
-      "A student-run hackathon designed for 600+ attendees needs more than a landing page: participants and organizers need reliable registration, scheduling, judging, check-in, communication, and administrative workflows.",
-    approach:
-      "Independently built participant applications, teams, project submissions, check-in, judging, and organizer workflows. Added backend event isolation, department-scoped staff permissions, and durable communication jobs with retries and duplicate-safe recovery.",
-    result:
-      "Published the live platform for participant registration, check-in, and organizer operations ahead of SpartaHack 12.",
-    links: [{ label: "Website", href: "https://spartahack.com" }]
-  },
-  {
-    number: "05",
-    slug: "msu-isa-platform",
-    title: "MSU ISA Platform",
-    image: "/images/projects/msu-isa.png",
-    summary:
-      "A production Next.js and Supabase platform for public events, registration, affiliate operations, attendance, funding requests, and staff administration.",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "PostgreSQL",
-      "CI/CD"
-    ],
-    problem:
-      "ISA needs a more structured way to manage affiliate organizations, track participation, and handle funding request workflows.",
-    approach:
-      "Built public and staff workflows with server-enforced permissions, organization isolation, conflict-of-interest rules, and audit records. Tested duplicate-safe operations and automated releases and PostgreSQL migrations through CI/CD.",
-    result:
-      "Launched msuisa.org, bringing ISA's event registration, affiliate attendance, funding requests, and staff administration into one platform with protected access and traceable operations.",
-    links: [{ label: "Website", href: "https://msuisa.org" }]
   },
   {
     number: "06",
