@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
+import YouTubeVideo from "../../components/YouTubeVideo.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { projects, profile } from "../../data/portfolio";
+import { projects, archivedProjects, profile } from "../../data/portfolio";
 import { caseStudies } from "../../data/case-studies";
 
 export function getStaticPaths() {
-  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+  return [...projects, ...archivedProjects].map((project) => ({ params: { slug: project.slug }, props: { project } }));
 }
 const { project } = Astro.props;
 const study = caseStudies[project.slug];
@@ -45,13 +46,14 @@ const structuredData = [{
       </figure>
       <div class="article-body">
         {study.opening.map((paragraph) => <p>{paragraph}</p>)}
+        {study.videoId && <section aria-labelledby="gameplay-title"><h2 id="gameplay-title">See the game in action</h2><YouTubeVideo videoId={study.videoId} title={`${project.title} gameplay walkthrough`} /></section>}
         {study.chapters.map((chapter) => (
           <section><h2>{chapter.title}</h2>{chapter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</section>
         ))}
         <div class="article-end" aria-hidden="true">• &nbsp; • &nbsp; •</div>
-        <section class="article-resources" aria-labelledby="resources-title"><h2 id="resources-title">Explore {project.title}</h2><ul>{(project.links ?? []).map((link) => <li><a href={link.href} target="_blank" rel="noopener">{link.label} ↗</a></li>)}</ul></section>
+        {project.links?.length && <section class="article-resources" aria-labelledby="resources-title"><h2 id="resources-title">Explore {project.title}</h2><ul>{(project.links ?? []).map((link) => <li><a href={link.href} target="_blank" rel="noopener">{link.label} ↗</a></li>)}</ul></section>}
         <div class="article-topics"><ul aria-label="Topics">{project.tags.map((tag) => <li>{tag}</li>)}</ul></div>
-        <aside class="author-note" aria-label="About the author"><Image src="/images/avatar.jpeg" alt="" width={56} height={56} /><div><p class="author-note-name">Written by <a href="/#about">{profile.name}</a></p><p>I build data products, full-stack platforms, and applied AI tools. Computer Science + Business at Michigan State.</p><a href="/#contact">Get in touch →</a></div></aside>
+        <aside class="author-note" aria-label="About the author"><Image src="/images/avatar.jpeg" alt="" width={56} height={56} /><div><p class="author-note-name">Written by <a href="/#about">{profile.name}</a></p><p>{project.slug === "spartys-boots" ? "I build software and data products. Computer Science + Business at Michigan State." : "I build data products, full-stack platforms, and applied AI tools. Computer Science + Business at Michigan State."}</p><a href="/#contact">Get in touch →</a></div></aside>
       </div>
     </article>
     <section class="more-stories" aria-labelledby="more-stories-title"><h2 id="more-stories-title">More behind the build</h2><div>{related.map((item) => <a class="story-card" href={`/projects/${item.slug}/`}><Image src={item.image} alt="" width={280} height={175} loading="lazy" /><p>{item.title}</p><h3>{caseStudies[item.slug].headline}</h3><span>Read the story →</span></a>)}</div></section>

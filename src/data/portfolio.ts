@@ -235,6 +235,18 @@ export const projects: Project[] = [
   },
   {
     number: "04",
+    slug: "spartys-boots",
+    title: "Sparty's Boots",
+    image: "/images/projects/spartys-boots.png",
+    summary: "A C++17/wxWidgets logic-circuit game inspired by Rocky’s Boots and rethemed with Spartan spirit. Built in a five-person team, it has players wire sensors and gates to make Sparty kick the correct products off a conveyor.",
+    tags: ["C++17", "wxWidgets", "Object-Oriented Design", "GoogleTest", "CMake"],
+    problem: "Turn digital logic into a playable puzzle: detect products on a conveyor, combine their properties through a circuit, and trigger Sparty's kick at the right moment.",
+    approach: "Implemented view integration, virtual coordinates, pin wiring, SR and D flip-flops, and circuit-editing tools. Helped coordinate six sprints through task scoping, shared-file ownership, design updates, and peer review in a five-person team.",
+    result: "Completed and submitted eight playable levels with the team, including two team-created levels. Final checks included Windows animation and a clean-checkout build; the November 2 test run reported 88 passing tests.",
+    links: [{ label: "Gameplay Video", href: "https://youtu.be/gOyZ8aiECxw" }]
+  },
+  {
+    number: "05",
     slug: "farmx",
     title: "FarmX - Sustainable Agriculture",
     image: "/images/projects/farmx.png",
@@ -257,7 +269,7 @@ export const projects: Project[] = [
     links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
   },
   {
-    number: "05",
+    number: "06",
     slug: "micro-foods-market",
     title: "Micro Foods Market",
     image: "/images/projects/micro-foods-architecture.svg",
@@ -279,6 +291,11 @@ export const projects: Project[] = [
       "Created a cloud-deployment-ready backend foundation that strengthened service orchestration, authentication, and reusable architecture patterns.",
     links: [{ label: "GitHub", href: "https://github.com/apurva0510/MicroFoodMarket" }]
   },
+
+];
+
+// Retain published stories when they leave the featured lineup.
+export const archivedProjects: Project[] = [
   {
     number: "06",
     slug: "celebrity-face-recognition",
