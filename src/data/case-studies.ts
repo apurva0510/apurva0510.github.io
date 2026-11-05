@@ -74,7 +74,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "argus": {
-    projectDate: "2026-05",
+    projectDate: "2026-07-02",
     published: "2026-10-29",
     "headline": "I built Argus to help my dad research the AI infrastructure market",
     "subtitle": "How a family request grew into a daily research tool—and why the next useful feature was a clearer explanation.",
@@ -126,7 +126,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "spartahack-platform": {
-    projectDate: "2026-07",
+    projectDate: "2026-08-05",
     published: "2026-10-29",
     "headline": "Building a home for SpartaHack, before and during the event",
     "subtitle": "A hackathon website grew into the platform connecting the participant experience with the team organizing it.",
@@ -178,7 +178,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "msu-isa-platform": {
-    projectDate: "2026-07",
+    projectDate: "2026-09-29",
     published: "2026-10-29",
     "headline": "Building the website and working home for MSU ISA",
     "subtitle": "Connecting public events with the affiliate organizations, funding requests, and people behind them.",
@@ -238,7 +238,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "farmx": {
-    projectDate: "2024-09",
+    projectDate: "2024-10-01",
     published: "2026-10-29",
     "headline": "Building FarmX in a 24-hour hackathon",
     "subtitle": "Our MHacks sustainability project brought nitrogen prediction, crop-yield comparison, and soil resources into one application.",
@@ -274,7 +274,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "micro-foods-market": {
-    projectDate: "2025-04",
+    projectDate: "2025-04-22",
     published: "2026-10-29",
     "headline": "Learning service boundaries through a food marketplace",
     "subtitle": "A Flask backend project connecting authentication, products, search, orders, and logging with Docker.",

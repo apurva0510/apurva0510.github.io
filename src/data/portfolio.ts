@@ -8,6 +8,9 @@ type Project = {
   slug: string;
   title: string;
   image: string;
+  cardImage?: string;
+  imageCaption?: string;
+  imageAlt?: string;
   summary: string;
   tags: string[];
   problem: string;
@@ -193,8 +196,7 @@ export const projects: Project[] = [
       "Created a research platform tracking 53 companies, used daily by my dad and refined through his feedback. It combines explainable scoring and 5-, 20-, and 60-day backtests with plain-language research briefs, supported by behavioral tests and PostgreSQL-backed CI.",
     links: [
       { label: "GitHub", href: "https://github.com/apurva0510/argus" },
-      { label: "AI Companion Code", href: "https://github.com/apurva0510/argus-friend-brief" },
-      { label: "Sample AI Briefs", href: "https://argus-friend-brief.streamlit.app/" }
+      { label: "Friend Brief Demo", href: "https://argus-friend-brief.streamlit.app/" }
     ]
   },
   {
@@ -257,7 +259,10 @@ export const projects: Project[] = [
     number: "05",
     slug: "farmx",
     title: "FarmX - Sustainable Agriculture",
-    image: "/images/projects/farmx.png",
+    image: "/images/projects/farmx-mhacks-2024.jpeg",
+    cardImage: "/images/projects/farmx.png",
+    imageCaption: "Celebrating FarmX’s Best Sustainability Track win at MHacks 2024.",
+    imageAlt: "Two FarmX team members holding the Sustainability Winner prize at MHacks 2024.",
     summary:
       "An MHacks-winning Streamlit platform for optimal nitrogen prediction, crop yield projection, and farmer-facing soil resources.",
     tags: [
@@ -274,7 +279,11 @@ export const projects: Project[] = [
       "Worked on the Streamlit frontend and ML models, using crop and soil datasets with temperature, humidity, pH, rainfall, crop weight, moisture, crop type, and harvested area features.",
     result:
       "Won Best Sustainability Track at MHacks 2024 with a 24-hour prototype for nitrogen recommendations, crop yield comparison, and farmer resource access.",
-    links: [{ label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }]
+    links: [
+      { label: "Demo", href: "https://farmxneo.streamlit.app" },
+      { label: "GitHub", href: "https://github.com/apurva0510/FarmX" },
+      { label: "Devpost", href: "https://devpost.com/software/farmx-zpw0yq" }
+    ]
   },
   {
     number: "06",

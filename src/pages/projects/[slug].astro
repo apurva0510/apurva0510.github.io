@@ -38,12 +38,12 @@ const structuredData = [{
         <p class="article-subtitle">{subtitle}</p>
         <div class="article-author">
           <a href="/#about" tabindex="-1" aria-hidden="true"><Image src="/images/avatar.jpeg" alt="" width={44} height={44} /></a>
-          <div><a class="author-name" href="/#about">{profile.name}</a><p>{study.projectDate ? <>Built <time datetime={study.projectDate}>{formatStudyDate(study.projectDate)}</time></> : <time datetime={study.published}>{formatStudyDate(study.published)}</time>}{study.updated && <> · Updated <time datetime={study.updated}>{formatStudyDate(study.updated)}</time></>} <span aria-hidden="true">·</span> {readingMinutes} min read <span aria-hidden="true">·</span> {study.role}</p></div>
+          <div><a class="author-name" href="/#about">{profile.name}</a><p>{study.projectDate ? <><time datetime={study.projectDate}>{formatStudyDate(study.projectDate)}</time></> : <time datetime={study.published}>{formatStudyDate(study.published)}</time>}{study.updated && <> · Updated <time datetime={study.updated}>{formatStudyDate(study.updated)}</time></>} <span aria-hidden="true">·</span> {readingMinutes} min read <span aria-hidden="true">·</span> {study.role}</p></div>
         </div>
       </header>
       <figure class="article-cover">
-        <Image src={project.image} alt={`${project.title} project preview`} width={1200} height={750} loading="eager" decoding="async" />
-        <figcaption>{project.title} · {project.tags.slice(0, 3).join(" / ")}</figcaption>
+        <Image src={project.image} alt={project.imageAlt ?? `${project.title} project preview`} width={1200} height={750} loading="eager" decoding="async" />
+        <figcaption>{project.imageCaption ?? `${project.title} · ${project.tags.slice(0, 3).join(" / ")}`}</figcaption>
       </figure>
       <div class="article-body">
         {study.opening.map((paragraph) => <p>{paragraph}</p>)}

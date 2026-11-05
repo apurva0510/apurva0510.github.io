@@ -115,7 +115,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
       <div class="project-list" data-project-list>
         {projects.map((project) => (
           <article class="project-card" data-project-card tabindex="0" aria-expanded="false" aria-controls={`project-details-${project.number}`}>
-            <Image src={project.image} alt={`${project.title} preview`} width={180} height={140} loading="lazy" decoding="async" />
+            <Image src={project.cardImage ?? project.image} alt={`${project.title} preview`} width={180} height={140} loading="lazy" decoding="async" />
             <div class="project-content">
               <div class="project-header">
                 <span class="project-number">{project.number}</span>
