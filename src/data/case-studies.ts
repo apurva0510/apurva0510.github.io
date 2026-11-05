@@ -1,5 +1,9 @@
 type CaseStudy = {
 
+  published: string;
+  // Existing retrospective stories use project dates; new stories default to publication dates.
+  projectDate?: string;
+  updated?: string;
   videoId?: string;
   headline: string;
   subtitle: string;
@@ -10,6 +14,8 @@ type CaseStudy = {
 
 export const caseStudies: Record<string, CaseStudy> = {
   "spartys-boots": {
+    projectDate: "2026-11-03",
+    published: "2026-11-04",
     "videoId": "gOyZ8aiECxw",
     "headline": "Wiring a circuit to make Sparty kick",
     "subtitle": "Building a Spartan take on Rocky’s Boots with a five-person team, and helping organize the work across six sprints.",
@@ -68,6 +74,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "argus": {
+    projectDate: "2026-05",
+    published: "2026-10-29",
     "headline": "I built Argus to help my dad research the AI infrastructure market",
     "subtitle": "How a family request grew into a daily research tool—and why the next useful feature was a clearer explanation.",
     "role": "Creator of Argus",
@@ -118,6 +126,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "spartahack-platform": {
+    projectDate: "2026-07",
+    published: "2026-10-29",
     "headline": "Building a home for SpartaHack, before and during the event",
     "subtitle": "A hackathon website grew into the platform connecting the participant experience with the team organizing it.",
     "role": "SpartaHack Co-Director",
@@ -168,6 +178,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "msu-isa-platform": {
+    projectDate: "2026-07",
+    published: "2026-10-29",
     "headline": "Building the website and working home for MSU ISA",
     "subtitle": "Connecting public events with the affiliate organizations, funding requests, and people behind them.",
     "role": "ISA Director of Technical Affairs",
@@ -226,6 +238,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "farmx": {
+    projectDate: "2024-09",
+    published: "2026-10-29",
     "headline": "Building FarmX in a 24-hour hackathon",
     "subtitle": "Our MHacks sustainability project brought nitrogen prediction, crop-yield comparison, and soil resources into one application.",
     "role": "Frontend and machine learning · Team project",
@@ -260,6 +274,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "micro-foods-market": {
+    projectDate: "2025-04",
+    published: "2026-10-29",
     "headline": "Learning service boundaries through a food marketplace",
     "subtitle": "A Flask backend project connecting authentication, products, search, orders, and logging with Docker.",
     "role": "Backend development",
@@ -285,6 +301,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   },
   "celebrity-face-recognition": {
+    projectDate: "2025-12-08",
+    published: "2026-10-29",
     "headline": "Learning to look beyond a classifier’s accuracy",
     "subtitle": "Fine-tuning AlexNet to recognize 17 celebrity classes, then examining where it struggled.",
     "role": "Computer vision and model evaluation",
@@ -311,3 +329,13 @@ export const caseStudies: Record<string, CaseStudy> = {
     ]
   }
 };
+
+export function getReadingMinutes(study: CaseStudy): number {
+  const text = [...study.opening, ...study.chapters.flatMap((chapter) => chapter.paragraphs)].join(" ");
+  return Math.max(1, Math.ceil(text.split(/\s+/).length / 220));
+}
+
+export function formatStudyDate(date: string): string {
+  const monthOnly = date.length === 7;
+  return new Intl.DateTimeFormat("en-US", { month: "short", ...(monthOnly ? {} : { day: "numeric" as const }), year: "numeric", timeZone: "UTC" }).format(new Date(`${date}${monthOnly ? "-01" : ""}T00:00:00Z`));
+}

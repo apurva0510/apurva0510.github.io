@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects, archivedProjects, profile } from "../../data/portfolio";
+import { caseStudies, getReadingMinutes, formatStudyDate } from "../../data/case-studies";
+
+const stories = [...projects, ...archivedProjects]
+  .map((project) => ({ project, study: caseStudies[project.slug], date: caseStudies[project.slug].projectDate ?? caseStudies[project.slug].published }))
+  .sort((a, b) => b.date.localeCompare(a.date));
+---
+<BaseLayout title={`Projects & case studies | ${profile.name}`} description="Stories behind my software projects: the problems, decisions, and lessons from building them.">
+  <main class="archive-page">
+    <header class="archive-header">
+      <p class="eyebrow">Projects & writing</p>
+      <h1>Behind the build</h1>
+      <p>The problems, decisions, and lessons behind my projects.</p>
+    </header>
+    <div class="archive-list">
+      {stories.map(({ project, study, date }) => (
+        <article class="archive-story">
+          <a class="archive-story-link" href={`/projects/${project.slug}/`}>
+            <div class="archive-copy">
+              <p class="archive-meta"><time datetime={date}>{formatStudyDate(date)}</time><span aria-hidden="true"> · </span>{getReadingMinutes(study)} min read{study.updated && <> · Updated <time datetime={study.updated}>{formatStudyDate(study.updated)}</time></>}</p>
+              <h2>{study.headline}</h2>
+              <p class="archive-excerpt">{study.subtitle}</p>
+              <span class="archive-project">{project.title}</span>
+            </div>
+            <Image src={project.image} alt={`${project.title} preview`} width={320} height={210} loading="lazy" decoding="async" />
+          </a>
+        </article>
+      ))}
+    </div>
+    <footer><a href="/">← Back to the portfolio</a></footer>
+  </main>
+</BaseLayout>
+<style>
+  .archive-page { width: min(920px, calc(100% - 48px)); margin: 0 auto; padding: 4.5rem 0 3rem; }
+  .archive-header { margin-bottom: 3rem; }
+  h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -.045em; line-height: 1.1; margin-bottom: 1rem; }
+  .archive-header > p:last-child { color: var(--text-secondary); }
+  .archive-story { border-top: 1px solid var(--border-subtle); }
+  .archive-story-link { display: grid; grid-template-columns: minmax(0, 1fr) 200px; align-items: center; gap: 2.5rem; padding: 2.5rem 0; }
+  .archive-meta { color: var(--text-secondary); font-size: .78rem; margin-bottom: .8rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); line-height: 1.25; margin-bottom: .8rem; transition: color 200ms; }
+  .archive-excerpt { color: #aaaab1; font-size: .95rem; line-height: 1.65; margin-bottom: .9rem; }
+  .archive-project { color: var(--text-tertiary); font-size: .75rem; }
+  .archive-story img { width: 200px; height: 140px; object-fit: cover; border-radius: 6px; background: var(--bg-surface); }
+  .archive-story-link:hover h2 { color: var(--accent-primary); }
+  .archive-page a:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 6px; }
+  footer { border-top: 1px solid var(--border-subtle); padding-top: 2rem; font-size: .85rem; color: var(--text-secondary); }
+  @media (max-width: 600px) {
+    .archive-page { padding-top: 2.5rem; }
+    .archive-header { margin-bottom: 2rem; }
+    .archive-story-link { grid-template-columns: minmax(0, 1fr) 90px; gap: 1rem; padding: 1.75rem 0; }
+    .archive-story img { width: 90px; height: 90px; }
+    h2 { font-size: 1.2rem; }
+    .archive-excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: .85rem; }
+    .archive-meta { font-size: .7rem; }
+  }
+</style>

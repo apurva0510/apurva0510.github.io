@@ -55,12 +55,12 @@ export const navLinks = [
 export const about = {
   eyebrow: "About",
   title: "I turn complex workflows into software people use.",
-  points: [
-    "Computer Science major and Business minor at Michigan State University, graduating in May 2027.",
-    "Completed a Data Analyst internship at Tesla Residential Energy, working across entity resolution, a Power Apps CRM, executive-facing analytics, reporting automation, and GenAI workflows.",
-    "Previously at EY, supported a $13M enterprise migration through SQL Server validation, UAT, reconciliation, Azure Blob Storage, and Azure DevOps.",
-    "Outside internships, I build data products and full-stack platforms, including Argus, SpartaHack's event system, and MSU ISA's operations platform.",
-    "Strongest in ambiguity: turning messy data, manual workflows, and operational questions into reliable software and analytics systems."
+  paragraphs: [
+    "I’m a Computer Science student with a Business minor at Michigan State University, graduating in May 2027.",
+    "My projects usually start with someone needing a better way to get something done. I built Argus to help my dad research the AI infrastructure market. At MSU, I’ve built platforms for the International Students Association and SpartaHack, connecting public websites with event registration, funding, and organizer workflows.",
+    "Previously, I interned in Tesla’s Residential Energy team, working on data quality, a Power Apps CRM, reporting automation, and internal AI tools. Before that, I worked in technology consulting at EY on enterprise data migration and validation.",
+    "I enjoy figuring out what people need, turning that into working software, and improving it through their feedback. I’m interested in data engineering, software engineering, and applied AI roles where I can keep doing that.",
+    "Outside of work and school, I play guitar, lift, cycle, and spend plenty of time with games, cars, and watches."
   ]
 };
 
@@ -157,7 +157,15 @@ export const education: Experience[] = [
     logo: "/logos/organizations/msu.webp",
     logoAlt: "Michigan State University logo",
     body:
-      "Maintaining a 3.95 GPA while studying computer science, business, artificial intelligence, big data analysis, cloud development, and data structures."
+      "3.95 GPA, with five semesters on the Dean’s List. I study algorithms, software design, AI and machine learning, big data, cloud development, and autonomous vehicles, along with business coursework for my minor."
+  },
+  {
+    range: "Jul 2021 - Jun 2023",
+    role: "International Baccalaureate Diploma Programme",
+    org: "Singapore",
+    logo: "/logos/organizations/ib.png",
+    logoAlt: "International Baccalaureate logo",
+    body: "Higher Level subjects: Physics, Chemistry, and Mathematics: Analysis and Approaches. My Physics Extended Essay investigated how dust buildup affects solar-cell efficiency."
   }
 ];
 

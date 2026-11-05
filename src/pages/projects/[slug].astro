@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import YouTubeVideo from "../../components/YouTubeVideo.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projects, archivedProjects, profile } from "../../data/portfolio";
-import { caseStudies } from "../../data/case-studies";
+import { caseStudies, getReadingMinutes, formatStudyDate } from "../../data/case-studies";
 
 export function getStaticPaths() {
   return [...projects, ...archivedProjects].map((project) => ({ params: { slug: project.slug }, props: { project } }));
@@ -12,14 +12,15 @@ const { project } = Astro.props;
 const study = caseStudies[project.slug];
 const headline = study.headline;
 const subtitle = study.subtitle;
-const text = [...study.opening, ...study.chapters.flatMap((chapter) => chapter.paragraphs)].join(" ");
-const readingMinutes = Math.max(1, Math.ceil(text.split(/\s+/).length / 220));
+const readingMinutes = getReadingMinutes(study);
 const related = projects.filter((item) => item.slug !== project.slug).slice(0, 3);
 const url = new URL(`/projects/${project.slug}/`, Astro.site).href;
 const structuredData = [{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline,
+  datePublished: study.published,
+  ...(study.updated ? { dateModified: study.updated } : {}),
   description: subtitle,
   url,
   mainEntityOfPage: url,
@@ -31,13 +32,13 @@ const structuredData = [{
   <main class="journal-page">
     <article>
       <header class="article-header">
-        <a class="article-back" href="/#projects">← Projects & writing</a>
+        <a class="article-back" href="/projects/">← All case studies</a>
         <p class="article-kicker">Behind the build · {project.title}</p>
         <h1>{headline}</h1>
         <p class="article-subtitle">{subtitle}</p>
         <div class="article-author">
           <a href="/#about" tabindex="-1" aria-hidden="true"><Image src="/images/avatar.jpeg" alt="" width={44} height={44} /></a>
-          <div><a class="author-name" href="/#about">{profile.name}</a><p>{readingMinutes} min read <span aria-hidden="true">·</span> {study.role}</p></div>
+          <div><a class="author-name" href="/#about">{profile.name}</a><p>{study.projectDate ? <>Built <time datetime={study.projectDate}>{formatStudyDate(study.projectDate)}</time></> : <time datetime={study.published}>{formatStudyDate(study.published)}</time>}{study.updated && <> · Updated <time datetime={study.updated}>{formatStudyDate(study.updated)}</time></>} <span aria-hidden="true">·</span> {readingMinutes} min read <span aria-hidden="true">·</span> {study.role}</p></div>
         </div>
       </header>
       <figure class="article-cover">

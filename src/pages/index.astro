@@ -42,20 +42,14 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
       </a>
     </section>
 
-    <section id="about" class="section split-section">
-      <div>
-        <SectionHeader
-          eyebrow={about.eyebrow}
-          title={about.title}
-        />
-        <div class="about-fact" aria-live="polite">
-          <span class="eyebrow">Beyond the work</span>
-          <p data-about-fact>Music content creator</p>
+    <section id="about" class="section about-section" aria-label="About">
+      <div class="about-narrative">
+        <p class="eyebrow">{about.eyebrow}</p>
+        <h2>{about.title}</h2>
+        <div class="about-copy">
+          {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
-      <ul class="about-list">
-        {about.points.map((point) => <li>{point}</li>)}
-      </ul>
     </section>
 
     <section id="experience" class="section">
@@ -105,7 +99,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
                   <p class="org">{item.org}</p>
                 </div>
               </div>
-              <p>{item.body}</p>
+              {item.body && <p>{item.body}</p>}
             </div>
           </article>
         ))}
@@ -168,6 +162,7 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
           </article>
         ))}
       </div>
+      <a class="all-studies-link" href="/projects/">View all case studies <span aria-hidden="true">→</span></a>
     </section>
 
     <section id="skills" class="section">
@@ -316,31 +311,6 @@ const getProjectLinkIcon = (label: string): "github" | "devpost" | null => {
 
     updateHeroScrollCue();
     document.addEventListener("scroll", updateHeroScrollCue, { passive: true });
-
-    const aboutFact = document.querySelector("[data-about-fact]");
-    const aboutFacts = [
-      "Music content creator",
-      "Former cross-country runner",
-      "Formula 1 fan",
-      "Watch collector",
-      "Chess player",
-      "Trained in taekwondo",
-      "Cars enthusiast",
-      "Consistent gym training"
-    ];
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let aboutFactIndex = 0;
-
-    if (aboutFact instanceof HTMLElement && !prefersReducedMotion) {
-      window.setInterval(() => {
-        aboutFact.classList.add("is-changing");
-        window.setTimeout(() => {
-          aboutFactIndex = (aboutFactIndex + 1) % aboutFacts.length;
-          aboutFact.textContent = aboutFacts[aboutFactIndex];
-          aboutFact.classList.remove("is-changing");
-        }, 220);
-      }, 4200);
-    }
 
     const easterEgg = document.querySelector("[data-easter-egg]");
     const easterEggMessages: Record<string, string> = {
