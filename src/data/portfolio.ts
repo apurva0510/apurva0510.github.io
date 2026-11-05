@@ -309,12 +309,46 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: "https://github.com/apurva0510/MicroFoodMarket" }]
   },
 
+
 ];
 
 // Retain published stories when they leave the featured lineup.
 export const archivedProjects: Project[] = [
   {
-    number: "06",
+    "number": "07",
+    "slug": "airplane-rush",
+    "title": "Airplane Rush",
+    "image": "/images/projects/airplane-rush.png",
+    "imageAlt": "Airplane Rush landing page with crew name and room-code controls.",
+    "imageCaption": "Airplane Rush: create a flight or join your friends with a room code.",
+    "summary": "A cooperative cabin-service game for 2–6 players, with shared flights, expanding airplane layouts, and persistent crew progression.",
+    "tags": [
+        "React",
+        "TypeScript",
+        "Cloudflare",
+        "D1",
+        "Multiplayer"
+    ],
+    "problem": "Make a browser game that friends can join from separate devices, understand quickly, and play cooperatively.",
+    "approach": "Directed the game concept, movement and tray interactions, round pacing, cabin progression, and cosmetic rewards, with coding assistance for implementation.",
+    "result": "Published a playable room-code multiplayer game with server-managed flight state, persistent rewards, and global scores.",
+    "links": [
+        {
+            "label": "Play",
+            "href": "https://airplane-rush.apurva0510.chatgpt.site"
+        },
+        {
+            "label": "GitHub",
+            "href": "https://github.com/apurva0510/airplane-rush"
+        },
+        {
+            "label": "Challenge",
+            "href": "https://app.joinhandshake.com/learn/create-a-multiplayer-game-8d7d59b5/mission_step_cms91q9ip000h21qxfce1a5f0"
+        }
+    ]
+},
+  {
+    number: "08",
     slug: "celebrity-face-recognition",
     title: "Celebrity Face Recognition",
     image: "/images/projects/alexnet.jpg",

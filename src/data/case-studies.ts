@@ -13,6 +13,64 @@ type CaseStudy = {
 };
 
 export const caseStudies: Record<string, CaseStudy> = {
+  "airplane-rush": {
+    "projectDate": "2026-10-04",
+    "published": "2026-11-04",
+    "headline": "Turning a crowded airplane into a co-op game",
+    "subtitle": "How I shaped Airplane Rush around moving crew, impatient passengers, and the challenge of keeping a shared flight fun.",
+    "role": "Side project · Game concept, product direction, and iteration",
+    "opening": [
+        "Handshake’s Create a Multiplayer Game mission gave me a reason to try an idea I wanted to play with friends: a small group joining from their own devices and immediately having something to do together. An airplane cabin gave it a clear setting: passengers need things, the crew has limited hands, and landing puts a deadline on everything.",
+        "Airplane Rush became a cooperative cabin-service game for two to six players. You share a room code, collect water, coffee, snacks, or blankets, and get them to passengers before their patience runs out. Everyone works toward the same cabin satisfaction target.",
+        "I directed the concept, controls, difficulty, and progression, using Codex to help implement the web application. The interesting part for me was taking a working version and deciding what needed to change before it felt like the game I had in mind."
+    ],
+    "chapters": [
+        {
+            "title": "The crew had to move",
+            "paragraphs": [
+                "I had been working through object-oriented game development in CSE 335 and wanted to try a separate game outside the assignments. I carried over the habit of thinking about objects, state, and interactions, without reusing the coursework code. This project used React and TypeScript in the browser.",
+                "Physical movement mattered to the idea. I wanted players to move crew sprites through the cabin, rather than serve every seat from a stationary dashboard. A two-item tray means each trip involves a choice: what should I carry, and which passengers can I reach with it? Keyboard and touch controls let people participate from different devices."
+            ]
+        },
+        {
+            "title": "Make the tray behave like a tray",
+            "paragraphs": [
+                "Inventory controls were one of the places where I pushed for simpler interactions. I did not want a separate discard button or a special disposal zone competing with the cabin. Dragging a supply onto an occupied tray slot replaces that item; dragging an item outside the tray discards it.",
+                "That detail kept the action close to the object being changed. The player could correct a mistake and get back to serving. I also wanted individual passenger satisfaction to be visible alongside the cabin average, so players could see who needed attention instead of reacting only to one shared number."
+            ]
+        },
+        {
+            "title": "Bigger cabins needed more patience",
+            "paragraphs": [
+                "Early two-player rounds ended too quickly. I changed the pacing to a full three-minute flight, preceded by a shared three-second countdown. Players needed enough time to settle into the service loop together.",
+                "Progression expands the cabin from two seats per row to three, four, six, and eventually nine. The wider layouts introduce a middle block and a second aisle. That changes the routes players take and gives a group more to coordinate.",
+                "I explicitly wanted to avoid difficulty that would make people ragequit. More seats already mean longer journeys, so wider cabins get more passenger patience. Request intensity increases gradually, and expiry penalties were reduced. Those adjustments came from reviewing the early builds and preliminary simulations. Playing with a friend later gave me a chance to try the resulting game together."
+            ]
+        },
+        {
+            "title": "One flight, shared across devices",
+            "paragraphs": [
+                "The multiplayer implementation keeps an authoritative room state on the server. Browsers send actions and poll for updates roughly every 900 milliseconds. Version checks help prevent simultaneous updates from overwriting each other. It uses HTTP polling rather than WebSockets.",
+                "That shared state matters when several people act at once: serving a passenger, changing a tray, or starting a rematch needs to resolve consistently for the room. The implementation uses Cloudflare-compatible routes and D1/SQLite storage, with React rendering each player’s view."
+            ]
+        },
+        {
+            "title": "A reason to take another flight",
+            "paragraphs": [
+                "I later added coins, crew colors, milestones, personal records, and a global leaderboard. The colors are cosmetic, so returning players do not gain a service advantage over someone joining for the first time.",
+                "Persistent rewards brought a different set of questions. Could landing or rematching award the same coins twice? Could a player buy something they could not afford? An atomic reward ledger records each profile’s payout for a round once. Local integration checks covered duplicate reward claims, balances, ownership, and equipped colors.",
+                "The game is published and playable, with a limitation worth making clear: saved progress belongs to a browser crew pass. There is no account recovery or cross-device login yet, and clearing cookies starts a new pass. Player names and completed-flight scores appear publicly on the leaderboard."
+            ]
+        },
+        {
+            "title": "We kept playing",
+            "paragraphs": [
+                "I played Airplane Rush with a friend, and we both stayed with it for a good while. He had a lot of fun. After spending so much time specifying interactions and checking behavior, it felt good to spend time simply playing the game together.",
+                "That session gave me a reason to keep working on it. I would still like to watch a larger group play without me explaining anything: where they hesitate, how they share the work, and whether they want another flight. For now, I had made something a friend and I enjoyed spending time with."
+            ]
+        }
+    ]
+},
   "spartys-boots": {
     projectDate: "2026-11-03",
     published: "2026-11-04",
